@@ -1,19 +1,15 @@
 <?php
-
+include_once('/../dbconfig.php');	
+	
 class Model
 {
-	var $domain='localhost';
-	var $db_name = "teiriko_synergy";
-	var $db_user_adm = "teiriko_synergy";
-	var $db_pass_adm = "159753";
-	var $db_loc = "localhost";
-	
-
+	 
 	public function evaluate_Query($q)
 	{
-		$link = mysql_connect($this->db_loc,$this->db_user_adm,$this->db_pass_adm);
+		global $db_loc,$db_name,$db_user_adm,$db_pass_adm;
+		$link = mysql_connect($db_loc,$db_user_adm,$db_pass_adm);
 		mysql_query('SET NAMES utf8');
-		mysql_select_db($this->db_name, $link);
+		mysql_select_db($db_name, $link);
 		if (!$link) 
 			{
 				return 0;

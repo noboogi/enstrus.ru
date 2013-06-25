@@ -10,11 +10,7 @@ class Model_Login extends Model
 			/*Валидация данных и хэширование пароля*/
 			$login = $this->SafeSQL($login, 15);
 			$password = $this->SafeSQL($password, 30);
-			//$password = md5($password);
-			//$test = hash('sha256',"159753");
-			//echo $test;
-			
-			/*Запрашиваем пользователя с указанным логином и паролем*/
+
 			$user = $this->evaluate_Query("SELECT * FROM user WHERE login='$login'");
 	
 			/*Определяем, каков результат запроса*/
