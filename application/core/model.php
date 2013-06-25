@@ -5,7 +5,7 @@ class Model
 	var $domain='localhost';
 	var $db_name = "teiriko_synergy";
 	var $db_user_adm = "teiriko_synergy";
-	var $db_pass_adm = "";
+	var $db_pass_adm = "159753";
 	var $db_loc = "localhost";
 	
 
