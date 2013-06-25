@@ -1,0 +1,30 @@
+.news_container
+{
+	padding: 5px;
+}
+
+.news_header
+{
+	background: url(../images/icons/news48.png) no-repeat;
+	color: #2E6172; 
+	padding-left: 55px;
+	margin: 5px 10px 5px 10px;
+	height: 48px;
+	
+}
+
+.meta
+{
+	font-size:14px; 
+}
+
+
+.news_body
+{
+	border-top: #2E6172 dashed thin;
+	border-left: none;
+	border-right: none;
+	margin: 10px 20px 30px 20px;
+	
+}
+

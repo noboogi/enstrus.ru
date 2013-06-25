@@ -1,0 +1,20 @@
+.name
+{
+	color:#182D45; 
+	padding: 3px;
+	padding-left: 10px;
+	font-size: 20px;
+}
+
+.contact
+{
+	color: #3A7B81;
+	font-size: 18px;
+	padding-left: 20px;
+	margin-left: 20px;	
+}
+
+.phone {background:url(../images/icons/Phone16.png) no-repeat;}
+.email{background:url(../images/icons/mail16.png) no-repeat;}
+.icq{background:url(../images/icons/icq16.png) no-repeat;}
+.skype{background:url(../images/icons/Skype16.png) no-repeat;}	

@@ -1,0 +1,8 @@
+SELECT
+  custom_id
+, sum(CASE WHEN  date_p <= '2012.11.14' THEN sum_p ELSE 0 END) sum_before
+, sum(CASE WHEN  date_p > '2012.11.14' THEN sum_p ELSE 0 END) sum_after 
+FROM
+  purchase
+group by
+  custom_id 

@@ -1,0 +1,26 @@
+table.information
+{
+	border: 2px solid #6CC;
+	border-collapse:collapse;
+	width: 100%	
+}
+
+table.information thead
+{
+	background:#D7E8EE;
+	color:#314A64;
+	padding: 10px;	
+	cursor: pointer;
+}
+
+table.information td, th 
+{
+	border: 2px solid #6CC;		
+}
+
+table.information tbody tr:hover 
+{
+    background: #E9F5F3; /* Цвет фона при наведении */
+	cursor: pointer;
+}
+

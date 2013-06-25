@@ -1,0 +1,2907 @@
+<HTML>
+			<HEAD>
+			<META http-equiv=Content-Type content="text/html; charset=windows-1251">
+			<link rel='stylesheet' href='_img/my.css' type='text/css' />
+			<!--[if IE]><SCRIPT language=javascript src="../res/flot/excanvas.min.js" type=text/javascript></SCRIPT><![endif]-->
+			<SCRIPT language=javascript src="../res/flot/jquery.js" type=text/javascript></SCRIPT>
+			<SCRIPT language=javascript src="../res/flot/jquery.flot.js" type=text/javascript></SCRIPT>
+			<SCRIPT language=javascript src="../res/flot/jquery.flot.selection.js" type=text/javascript></SCRIPT>
+			<BODY bgcolor='#F4FFE4'>
+			<H1>Профили мощности за период <br>с  00:00 01.05.2013 по  24:00 05.05.2013</H1>
+			<DIV id='placeholder' style="width:640px;height:300px;"></DIV>
+			<DIV id='overview'></DIV>
+			<div id="choices"></div><br>
+			<table id="tableGraph2" style="width:1100;border-collapse:collapse;margin:1em 0">
+			<THEAD>
+<TR>
+<TH class=style20>№</TH>
+<TH class=style20>A+, кВт</TH>
+<TH class=style20>A-, кВт</TH>
+<TH class=style20>R+, квар</TH>
+<TH class=style20>R-, квар</TH>
+<TH class=style20>Время</TH>
+<TH class=style20>Дата</TH>
+<TH class=style20>Период, мин.</TH>
+<TH class=style20>Примечание</TH>
+<TH class=style20>UTC(мс)</TH></TR></THEAD>
+<TBODY>
+<TR>
+<TD class=style21>1</TD>
+<TD class=style21>0.5370</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0050</TD>
+<TD class=style21>-</TD>
+<TD class=style21>22:30</TD>
+<TD class=style21>30.04.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>Несоответствие</TD>
+<TD class=style21>1367366400000</TD></TR>
+<TR>
+<TD class=style21>2</TD>
+<TD class=style21>0.5960</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0030</TD>
+<TD class=style21>-</TD>
+<TD class=style21>23:00</TD>
+<TD class=style21>30.04.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>Несоответствие</TD>
+<TD class=style21>1367368200000</TD></TR>
+<TR>
+<TD class=style21>3</TD>
+<TD class=style21>0.6570</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0020</TD>
+<TD class=style21>-</TD>
+<TD class=style21>23:30</TD>
+<TD class=style21>30.04.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>Несоответствие</TD>
+<TD class=style21>1367370000000</TD></TR>
+<TR>
+<TD class=style21>4</TD>
+<TD class=style21>0.6210</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0020</TD>
+<TD class=style21>-</TD>
+<TD class=style21>00:00</TD>
+<TD class=style21>01.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367371800000</TD></TR>
+<TR>
+<TD class=style21>5</TD>
+<TD class=style21>0.5760</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0020</TD>
+<TD class=style21>-</TD>
+<TD class=style21>00:30</TD>
+<TD class=style21>01.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367373600000</TD></TR>
+<TR>
+<TD class=style21>6</TD>
+<TD class=style21>0.4410</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0020</TD>
+<TD class=style21>-</TD>
+<TD class=style21>01:00</TD>
+<TD class=style21>01.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367375400000</TD></TR>
+<TR>
+<TD class=style21>7</TD>
+<TD class=style21>0.3980</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0010</TD>
+<TD class=style21>-</TD>
+<TD class=style21>01:30</TD>
+<TD class=style21>01.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367377200000</TD></TR>
+<TR>
+<TD class=style21>8</TD>
+<TD class=style21>0.3410</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0010</TD>
+<TD class=style21>-</TD>
+<TD class=style21>02:00</TD>
+<TD class=style21>01.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367379000000</TD></TR>
+<TR>
+<TD class=style21>9</TD>
+<TD class=style21>0.3540</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0010</TD>
+<TD class=style21>-</TD>
+<TD class=style21>02:30</TD>
+<TD class=style21>01.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367380800000</TD></TR>
+<TR>
+<TD class=style21>10</TD>
+<TD class=style21>0.3810</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0020</TD>
+<TD class=style21>-</TD>
+<TD class=style21>03:00</TD>
+<TD class=style21>01.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367382600000</TD></TR>
+<TR>
+<TD class=style21>11</TD>
+<TD class=style21>0.3350</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0150</TD>
+<TD class=style21>-</TD>
+<TD class=style21>03:30</TD>
+<TD class=style21>01.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367384400000</TD></TR>
+<TR>
+<TD class=style21>12</TD>
+<TD class=style21>0.3320</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0060</TD>
+<TD class=style21>-</TD>
+<TD class=style21>04:00</TD>
+<TD class=style21>01.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367386200000</TD></TR>
+<TR>
+<TD class=style21>13</TD>
+<TD class=style21>0.3610</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0070</TD>
+<TD class=style21>-</TD>
+<TD class=style21>04:30</TD>
+<TD class=style21>01.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367388000000</TD></TR>
+<TR>
+<TD class=style21>14</TD>
+<TD class=style21>0.2960</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0050</TD>
+<TD class=style21>-</TD>
+<TD class=style21>05:00</TD>
+<TD class=style21>01.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367389800000</TD></TR>
+<TR>
+<TD class=style21>15</TD>
+<TD class=style21>0.2450</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0030</TD>
+<TD class=style21>-</TD>
+<TD class=style21>05:30</TD>
+<TD class=style21>01.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367391600000</TD></TR>
+<TR>
+<TD class=style21>16</TD>
+<TD class=style21>0.3170</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0030</TD>
+<TD class=style21>-</TD>
+<TD class=style21>06:00</TD>
+<TD class=style21>01.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367393400000</TD></TR>
+<TR>
+<TD class=style21>17</TD>
+<TD class=style21>0.3580</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0</TD>
+<TD class=style21>-</TD>
+<TD class=style21>06:30</TD>
+<TD class=style21>01.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367395200000</TD></TR>
+<TR>
+<TD class=style21>18</TD>
+<TD class=style21>0.3700</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0</TD>
+<TD class=style21>-</TD>
+<TD class=style21>07:00</TD>
+<TD class=style21>01.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367397000000</TD></TR>
+<TR>
+<TD class=style21>19</TD>
+<TD class=style21>0.3260</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0020</TD>
+<TD class=style21>-</TD>
+<TD class=style21>07:30</TD>
+<TD class=style21>01.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367398800000</TD></TR>
+<TR>
+<TD class=style21>20</TD>
+<TD class=style21>0.2730</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0010</TD>
+<TD class=style21>-</TD>
+<TD class=style21>08:00</TD>
+<TD class=style21>01.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367400600000</TD></TR>
+<TR>
+<TD class=style21>21</TD>
+<TD class=style21>0.3790</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0</TD>
+<TD class=style21>-</TD>
+<TD class=style21>08:30</TD>
+<TD class=style21>01.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367402400000</TD></TR>
+<TR>
+<TD class=style21>22</TD>
+<TD class=style21>0.4300</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0020</TD>
+<TD class=style21>-</TD>
+<TD class=style21>09:00</TD>
+<TD class=style21>01.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367404200000</TD></TR>
+<TR>
+<TD class=style21>23</TD>
+<TD class=style21>0.4330</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0030</TD>
+<TD class=style21>-</TD>
+<TD class=style21>09:30</TD>
+<TD class=style21>01.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367406000000</TD></TR>
+<TR>
+<TD class=style21>24</TD>
+<TD class=style21>0.4850</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0030</TD>
+<TD class=style21>-</TD>
+<TD class=style21>10:00</TD>
+<TD class=style21>01.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367407800000</TD></TR>
+<TR>
+<TD class=style21>25</TD>
+<TD class=style21>0.4580</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0</TD>
+<TD class=style21>-</TD>
+<TD class=style21>10:30</TD>
+<TD class=style21>01.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367409600000</TD></TR>
+<TR>
+<TD class=style21>26</TD>
+<TD class=style21>0.5080</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0010</TD>
+<TD class=style21>-</TD>
+<TD class=style21>11:00</TD>
+<TD class=style21>01.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367411400000</TD></TR>
+<TR>
+<TD class=style21>27</TD>
+<TD class=style21>0.4480</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0050</TD>
+<TD class=style21>-</TD>
+<TD class=style21>11:30</TD>
+<TD class=style21>01.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367413200000</TD></TR>
+<TR>
+<TD class=style21>28</TD>
+<TD class=style21>0.4110</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0050</TD>
+<TD class=style21>-</TD>
+<TD class=style21>12:00</TD>
+<TD class=style21>01.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367415000000</TD></TR>
+<TR>
+<TD class=style21>29</TD>
+<TD class=style21>0.3640</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0020</TD>
+<TD class=style21>-</TD>
+<TD class=style21>12:30</TD>
+<TD class=style21>01.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367416800000</TD></TR>
+<TR>
+<TD class=style21>30</TD>
+<TD class=style21>0.3090</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0040</TD>
+<TD class=style21>-</TD>
+<TD class=style21>13:00</TD>
+<TD class=style21>01.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367418600000</TD></TR>
+<TR>
+<TD class=style21>31</TD>
+<TD class=style21>0.3190</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0060</TD>
+<TD class=style21>-</TD>
+<TD class=style21>13:30</TD>
+<TD class=style21>01.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367420400000</TD></TR>
+<TR>
+<TD class=style21>32</TD>
+<TD class=style21>0.2540</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0030</TD>
+<TD class=style21>-</TD>
+<TD class=style21>14:00</TD>
+<TD class=style21>01.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367422200000</TD></TR>
+<TR>
+<TD class=style21>33</TD>
+<TD class=style21>0.3620</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0030</TD>
+<TD class=style21>-</TD>
+<TD class=style21>14:30</TD>
+<TD class=style21>01.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367424000000</TD></TR>
+<TR>
+<TD class=style21>34</TD>
+<TD class=style21>0.3220</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0060</TD>
+<TD class=style21>-</TD>
+<TD class=style21>15:00</TD>
+<TD class=style21>01.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367425800000</TD></TR>
+<TR>
+<TD class=style21>35</TD>
+<TD class=style21>0.3630</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0</TD>
+<TD class=style21>-</TD>
+<TD class=style21>15:30</TD>
+<TD class=style21>01.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367427600000</TD></TR>
+<TR>
+<TD class=style21>36</TD>
+<TD class=style21>0.2520</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0040</TD>
+<TD class=style21>-</TD>
+<TD class=style21>16:00</TD>
+<TD class=style21>01.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367429400000</TD></TR>
+<TR>
+<TD class=style21>37</TD>
+<TD class=style21>0.2860</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0040</TD>
+<TD class=style21>-</TD>
+<TD class=style21>16:30</TD>
+<TD class=style21>01.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367431200000</TD></TR>
+<TR>
+<TD class=style21>38</TD>
+<TD class=style21>0.4940</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0020</TD>
+<TD class=style21>-</TD>
+<TD class=style21>17:00</TD>
+<TD class=style21>01.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367433000000</TD></TR>
+<TR>
+<TD class=style21>39</TD>
+<TD class=style21>0.4720</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0040</TD>
+<TD class=style21>-</TD>
+<TD class=style21>17:30</TD>
+<TD class=style21>01.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367434800000</TD></TR>
+<TR>
+<TD class=style21>40</TD>
+<TD class=style21>0.4520</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0010</TD>
+<TD class=style21>-</TD>
+<TD class=style21>18:00</TD>
+<TD class=style21>01.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367436600000</TD></TR>
+<TR>
+<TD class=style21>41</TD>
+<TD class=style21>0.4170</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0080</TD>
+<TD class=style21>-</TD>
+<TD class=style21>18:30</TD>
+<TD class=style21>01.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367438400000</TD></TR>
+<TR>
+<TD class=style21>42</TD>
+<TD class=style21>0.3890</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0060</TD>
+<TD class=style21>-</TD>
+<TD class=style21>19:00</TD>
+<TD class=style21>01.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367440200000</TD></TR>
+<TR>
+<TD class=style21>43</TD>
+<TD class=style21>0.3930</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0010</TD>
+<TD class=style21>-</TD>
+<TD class=style21>19:30</TD>
+<TD class=style21>01.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367442000000</TD></TR>
+<TR>
+<TD class=style21>44</TD>
+<TD class=style21>0.4020</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0</TD>
+<TD class=style21>-</TD>
+<TD class=style21>20:00</TD>
+<TD class=style21>01.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367443800000</TD></TR>
+<TR>
+<TD class=style21>45</TD>
+<TD class=style21>0.4360</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0020</TD>
+<TD class=style21>-</TD>
+<TD class=style21>20:30</TD>
+<TD class=style21>01.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367445600000</TD></TR>
+<TR>
+<TD class=style21>46</TD>
+<TD class=style21>0.3290</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0050</TD>
+<TD class=style21>-</TD>
+<TD class=style21>21:00</TD>
+<TD class=style21>01.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367447400000</TD></TR>
+<TR>
+<TD class=style21>47</TD>
+<TD class=style21>0.3980</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0</TD>
+<TD class=style21>-</TD>
+<TD class=style21>21:30</TD>
+<TD class=style21>01.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367449200000</TD></TR>
+<TR>
+<TD class=style21>48</TD>
+<TD class=style21>0.4380</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0</TD>
+<TD class=style21>-</TD>
+<TD class=style21>22:00</TD>
+<TD class=style21>01.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367451000000</TD></TR>
+<TR>
+<TD class=style21>49</TD>
+<TD class=style21>0.4720</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0030</TD>
+<TD class=style21>-</TD>
+<TD class=style21>22:30</TD>
+<TD class=style21>01.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>Несоответствие</TD>
+<TD class=style21>1367452800000</TD></TR>
+<TR>
+<TD class=style21>50</TD>
+<TD class=style21>0.3540</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0</TD>
+<TD class=style21>-</TD>
+<TD class=style21>23:00</TD>
+<TD class=style21>01.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>Несоответствие</TD>
+<TD class=style21>1367454600000</TD></TR>
+<TR>
+<TD class=style21>51</TD>
+<TD class=style21>0.4660</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0020</TD>
+<TD class=style21>-</TD>
+<TD class=style21>23:30</TD>
+<TD class=style21>01.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>Несоответствие</TD>
+<TD class=style21>1367456400000</TD></TR>
+<TR>
+<TD class=style21>52</TD>
+<TD class=style21>0.3770</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0</TD>
+<TD class=style21>-</TD>
+<TD class=style21>00:00</TD>
+<TD class=style21>02.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367458200000</TD></TR>
+<TR>
+<TD class=style21>53</TD>
+<TD class=style21>0.3650</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0</TD>
+<TD class=style21>-</TD>
+<TD class=style21>00:30</TD>
+<TD class=style21>02.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367460000000</TD></TR>
+<TR>
+<TD class=style21>54</TD>
+<TD class=style21>0.3960</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0010</TD>
+<TD class=style21>-</TD>
+<TD class=style21>01:00</TD>
+<TD class=style21>02.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367461800000</TD></TR>
+<TR>
+<TD class=style21>55</TD>
+<TD class=style21>0.3690</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0</TD>
+<TD class=style21>-</TD>
+<TD class=style21>01:30</TD>
+<TD class=style21>02.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367463600000</TD></TR>
+<TR>
+<TD class=style21>56</TD>
+<TD class=style21>0.3390</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0</TD>
+<TD class=style21>-</TD>
+<TD class=style21>02:00</TD>
+<TD class=style21>02.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367465400000</TD></TR>
+<TR>
+<TD class=style21>57</TD>
+<TD class=style21>0.3520</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0</TD>
+<TD class=style21>-</TD>
+<TD class=style21>02:30</TD>
+<TD class=style21>02.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367467200000</TD></TR>
+<TR>
+<TD class=style21>58</TD>
+<TD class=style21>0.3410</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0</TD>
+<TD class=style21>-</TD>
+<TD class=style21>03:00</TD>
+<TD class=style21>02.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367469000000</TD></TR>
+<TR>
+<TD class=style21>59</TD>
+<TD class=style21>0.3460</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0010</TD>
+<TD class=style21>-</TD>
+<TD class=style21>03:30</TD>
+<TD class=style21>02.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367470800000</TD></TR>
+<TR>
+<TD class=style21>60</TD>
+<TD class=style21>0.3610</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0</TD>
+<TD class=style21>-</TD>
+<TD class=style21>04:00</TD>
+<TD class=style21>02.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367472600000</TD></TR>
+<TR>
+<TD class=style21>61</TD>
+<TD class=style21>0.3440</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0</TD>
+<TD class=style21>-</TD>
+<TD class=style21>04:30</TD>
+<TD class=style21>02.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367474400000</TD></TR>
+<TR>
+<TD class=style21>62</TD>
+<TD class=style21>0.3490</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0010</TD>
+<TD class=style21>-</TD>
+<TD class=style21>05:00</TD>
+<TD class=style21>02.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367476200000</TD></TR>
+<TR>
+<TD class=style21>63</TD>
+<TD class=style21>0.3390</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0</TD>
+<TD class=style21>-</TD>
+<TD class=style21>05:30</TD>
+<TD class=style21>02.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367478000000</TD></TR>
+<TR>
+<TD class=style21>64</TD>
+<TD class=style21>0.3300</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0</TD>
+<TD class=style21>-</TD>
+<TD class=style21>06:00</TD>
+<TD class=style21>02.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367479800000</TD></TR>
+<TR>
+<TD class=style21>65</TD>
+<TD class=style21>0.3500</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0010</TD>
+<TD class=style21>-</TD>
+<TD class=style21>06:30</TD>
+<TD class=style21>02.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367481600000</TD></TR>
+<TR>
+<TD class=style21>66</TD>
+<TD class=style21>0.3160</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0010</TD>
+<TD class=style21>-</TD>
+<TD class=style21>07:00</TD>
+<TD class=style21>02.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367483400000</TD></TR>
+<TR>
+<TD class=style21>67</TD>
+<TD class=style21>0.2820</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0040</TD>
+<TD class=style21>-</TD>
+<TD class=style21>07:30</TD>
+<TD class=style21>02.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367485200000</TD></TR>
+<TR>
+<TD class=style21>68</TD>
+<TD class=style21>0.3000</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0060</TD>
+<TD class=style21>-</TD>
+<TD class=style21>08:00</TD>
+<TD class=style21>02.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367487000000</TD></TR>
+<TR>
+<TD class=style21>69</TD>
+<TD class=style21>0.3460</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0050</TD>
+<TD class=style21>-</TD>
+<TD class=style21>08:30</TD>
+<TD class=style21>02.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367488800000</TD></TR>
+<TR>
+<TD class=style21>70</TD>
+<TD class=style21>0.3330</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0020</TD>
+<TD class=style21>-</TD>
+<TD class=style21>09:00</TD>
+<TD class=style21>02.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367490600000</TD></TR>
+<TR>
+<TD class=style21>71</TD>
+<TD class=style21>0.3500</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0030</TD>
+<TD class=style21>-</TD>
+<TD class=style21>09:30</TD>
+<TD class=style21>02.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367492400000</TD></TR>
+<TR>
+<TD class=style21>72</TD>
+<TD class=style21>0.3550</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0020</TD>
+<TD class=style21>-</TD>
+<TD class=style21>10:00</TD>
+<TD class=style21>02.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367494200000</TD></TR>
+<TR>
+<TD class=style21>73</TD>
+<TD class=style21>0.4110</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0050</TD>
+<TD class=style21>-</TD>
+<TD class=style21>10:30</TD>
+<TD class=style21>02.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367496000000</TD></TR>
+<TR>
+<TD class=style21>74</TD>
+<TD class=style21>0.4770</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0020</TD>
+<TD class=style21>-</TD>
+<TD class=style21>11:00</TD>
+<TD class=style21>02.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367497800000</TD></TR>
+<TR>
+<TD class=style21>75</TD>
+<TD class=style21>0.3450</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0010</TD>
+<TD class=style21>-</TD>
+<TD class=style21>11:30</TD>
+<TD class=style21>02.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367499600000</TD></TR>
+<TR>
+<TD class=style21>76</TD>
+<TD class=style21>0.3910</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0010</TD>
+<TD class=style21>-</TD>
+<TD class=style21>12:00</TD>
+<TD class=style21>02.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367501400000</TD></TR>
+<TR>
+<TD class=style21>77</TD>
+<TD class=style21>0.3460</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0020</TD>
+<TD class=style21>-</TD>
+<TD class=style21>12:30</TD>
+<TD class=style21>02.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367503200000</TD></TR>
+<TR>
+<TD class=style21>78</TD>
+<TD class=style21>0.3330</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0</TD>
+<TD class=style21>-</TD>
+<TD class=style21>13:00</TD>
+<TD class=style21>02.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367505000000</TD></TR>
+<TR>
+<TD class=style21>79</TD>
+<TD class=style21>0.2890</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0</TD>
+<TD class=style21>-</TD>
+<TD class=style21>13:30</TD>
+<TD class=style21>02.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367506800000</TD></TR>
+<TR>
+<TD class=style21>80</TD>
+<TD class=style21>0.2940</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0020</TD>
+<TD class=style21>-</TD>
+<TD class=style21>14:00</TD>
+<TD class=style21>02.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367508600000</TD></TR>
+<TR>
+<TD class=style21>81</TD>
+<TD class=style21>0.2510</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0010</TD>
+<TD class=style21>-</TD>
+<TD class=style21>14:30</TD>
+<TD class=style21>02.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367510400000</TD></TR>
+<TR>
+<TD class=style21>82</TD>
+<TD class=style21>0.3460</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0010</TD>
+<TD class=style21>-</TD>
+<TD class=style21>15:00</TD>
+<TD class=style21>02.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367512200000</TD></TR>
+<TR>
+<TD class=style21>83</TD>
+<TD class=style21>0.4240</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0060</TD>
+<TD class=style21>-</TD>
+<TD class=style21>15:30</TD>
+<TD class=style21>02.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367514000000</TD></TR>
+<TR>
+<TD class=style21>84</TD>
+<TD class=style21>0.4150</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0030</TD>
+<TD class=style21>-</TD>
+<TD class=style21>16:00</TD>
+<TD class=style21>02.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367515800000</TD></TR>
+<TR>
+<TD class=style21>85</TD>
+<TD class=style21>0.4320</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0080</TD>
+<TD class=style21>-</TD>
+<TD class=style21>16:30</TD>
+<TD class=style21>02.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367517600000</TD></TR>
+<TR>
+<TD class=style21>86</TD>
+<TD class=style21>0.5250</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0100</TD>
+<TD class=style21>-</TD>
+<TD class=style21>17:00</TD>
+<TD class=style21>02.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367519400000</TD></TR>
+<TR>
+<TD class=style21>87</TD>
+<TD class=style21>0.4440</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0100</TD>
+<TD class=style21>-</TD>
+<TD class=style21>17:30</TD>
+<TD class=style21>02.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367521200000</TD></TR>
+<TR>
+<TD class=style21>88</TD>
+<TD class=style21>0.4090</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0100</TD>
+<TD class=style21>-</TD>
+<TD class=style21>18:00</TD>
+<TD class=style21>02.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367523000000</TD></TR>
+<TR>
+<TD class=style21>89</TD>
+<TD class=style21>0.3840</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0</TD>
+<TD class=style21>-</TD>
+<TD class=style21>18:30</TD>
+<TD class=style21>02.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367524800000</TD></TR>
+<TR>
+<TD class=style21>90</TD>
+<TD class=style21>0.3310</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0010</TD>
+<TD class=style21>-</TD>
+<TD class=style21>19:00</TD>
+<TD class=style21>02.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367526600000</TD></TR>
+<TR>
+<TD class=style21>91</TD>
+<TD class=style21>0.3110</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0030</TD>
+<TD class=style21>-</TD>
+<TD class=style21>19:30</TD>
+<TD class=style21>02.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367528400000</TD></TR>
+<TR>
+<TD class=style21>92</TD>
+<TD class=style21>0.3690</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0030</TD>
+<TD class=style21>-</TD>
+<TD class=style21>20:00</TD>
+<TD class=style21>02.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367530200000</TD></TR>
+<TR>
+<TD class=style21>93</TD>
+<TD class=style21>0.3470</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0010</TD>
+<TD class=style21>-</TD>
+<TD class=style21>20:30</TD>
+<TD class=style21>02.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367532000000</TD></TR>
+<TR>
+<TD class=style21>94</TD>
+<TD class=style21>0.2950</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0030</TD>
+<TD class=style21>-</TD>
+<TD class=style21>21:00</TD>
+<TD class=style21>02.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367533800000</TD></TR>
+<TR>
+<TD class=style21>95</TD>
+<TD class=style21>0.3450</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0050</TD>
+<TD class=style21>-</TD>
+<TD class=style21>21:30</TD>
+<TD class=style21>02.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367535600000</TD></TR>
+<TR>
+<TD class=style21>96</TD>
+<TD class=style21>0.3700</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0080</TD>
+<TD class=style21>-</TD>
+<TD class=style21>22:00</TD>
+<TD class=style21>02.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367537400000</TD></TR>
+<TR>
+<TD class=style21>97</TD>
+<TD class=style21>0.3930</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0030</TD>
+<TD class=style21>-</TD>
+<TD class=style21>22:30</TD>
+<TD class=style21>02.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>Несоответствие</TD>
+<TD class=style21>1367539200000</TD></TR>
+<TR>
+<TD class=style21>98</TD>
+<TD class=style21>0.4560</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0010</TD>
+<TD class=style21>-</TD>
+<TD class=style21>23:00</TD>
+<TD class=style21>02.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>Несоответствие</TD>
+<TD class=style21>1367541000000</TD></TR>
+<TR>
+<TD class=style21>99</TD>
+<TD class=style21>0.4710</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0050</TD>
+<TD class=style21>-</TD>
+<TD class=style21>23:30</TD>
+<TD class=style21>02.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>Несоответствие</TD>
+<TD class=style21>1367542800000</TD></TR>
+<TR>
+<TD class=style21>100</TD>
+<TD class=style21>0.4170</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0040</TD>
+<TD class=style21>-</TD>
+<TD class=style21>00:00</TD>
+<TD class=style21>03.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367544600000</TD></TR>
+<TR>
+<TD class=style21>101</TD>
+<TD class=style21>0.4340</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0010</TD>
+<TD class=style21>-</TD>
+<TD class=style21>00:30</TD>
+<TD class=style21>03.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367546400000</TD></TR>
+<TR>
+<TD class=style21>102</TD>
+<TD class=style21>0.4170</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0</TD>
+<TD class=style21>-</TD>
+<TD class=style21>01:00</TD>
+<TD class=style21>03.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367548200000</TD></TR>
+<TR>
+<TD class=style21>103</TD>
+<TD class=style21>0.3930</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0010</TD>
+<TD class=style21>-</TD>
+<TD class=style21>01:30</TD>
+<TD class=style21>03.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367550000000</TD></TR>
+<TR>
+<TD class=style21>104</TD>
+<TD class=style21>0.3980</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0</TD>
+<TD class=style21>-</TD>
+<TD class=style21>02:00</TD>
+<TD class=style21>03.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367551800000</TD></TR>
+<TR>
+<TD class=style21>105</TD>
+<TD class=style21>0.3890</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0</TD>
+<TD class=style21>-</TD>
+<TD class=style21>02:30</TD>
+<TD class=style21>03.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367553600000</TD></TR>
+<TR>
+<TD class=style21>106</TD>
+<TD class=style21>0.3220</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0010</TD>
+<TD class=style21>-</TD>
+<TD class=style21>03:00</TD>
+<TD class=style21>03.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367555400000</TD></TR>
+<TR>
+<TD class=style21>107</TD>
+<TD class=style21>0.2860</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0</TD>
+<TD class=style21>-</TD>
+<TD class=style21>03:30</TD>
+<TD class=style21>03.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367557200000</TD></TR>
+<TR>
+<TD class=style21>108</TD>
+<TD class=style21>0.2720</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0</TD>
+<TD class=style21>-</TD>
+<TD class=style21>04:00</TD>
+<TD class=style21>03.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367559000000</TD></TR>
+<TR>
+<TD class=style21>109</TD>
+<TD class=style21>0.2690</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0010</TD>
+<TD class=style21>-</TD>
+<TD class=style21>04:30</TD>
+<TD class=style21>03.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367560800000</TD></TR>
+<TR>
+<TD class=style21>110</TD>
+<TD class=style21>0.2890</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0</TD>
+<TD class=style21>-</TD>
+<TD class=style21>05:00</TD>
+<TD class=style21>03.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367562600000</TD></TR>
+<TR>
+<TD class=style21>111</TD>
+<TD class=style21>0.2200</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0</TD>
+<TD class=style21>-</TD>
+<TD class=style21>05:30</TD>
+<TD class=style21>03.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367564400000</TD></TR>
+<TR>
+<TD class=style21>112</TD>
+<TD class=style21>0.2840</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0010</TD>
+<TD class=style21>-</TD>
+<TD class=style21>06:00</TD>
+<TD class=style21>03.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367566200000</TD></TR>
+<TR>
+<TD class=style21>113</TD>
+<TD class=style21>0.3290</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0020</TD>
+<TD class=style21>-</TD>
+<TD class=style21>06:30</TD>
+<TD class=style21>03.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367568000000</TD></TR>
+<TR>
+<TD class=style21>114</TD>
+<TD class=style21>0.3200</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0010</TD>
+<TD class=style21>-</TD>
+<TD class=style21>07:00</TD>
+<TD class=style21>03.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367569800000</TD></TR>
+<TR>
+<TD class=style21>115</TD>
+<TD class=style21>0.2740</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0</TD>
+<TD class=style21>-</TD>
+<TD class=style21>07:30</TD>
+<TD class=style21>03.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367571600000</TD></TR>
+<TR>
+<TD class=style21>116</TD>
+<TD class=style21>0.2780</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0010</TD>
+<TD class=style21>-</TD>
+<TD class=style21>08:00</TD>
+<TD class=style21>03.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367573400000</TD></TR>
+<TR>
+<TD class=style21>117</TD>
+<TD class=style21>0.2170</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0</TD>
+<TD class=style21>-</TD>
+<TD class=style21>08:30</TD>
+<TD class=style21>03.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367575200000</TD></TR>
+<TR>
+<TD class=style21>118</TD>
+<TD class=style21>0.1870</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0</TD>
+<TD class=style21>-</TD>
+<TD class=style21>09:00</TD>
+<TD class=style21>03.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367577000000</TD></TR>
+<TR>
+<TD class=style21>119</TD>
+<TD class=style21>0.2030</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0020</TD>
+<TD class=style21>-</TD>
+<TD class=style21>09:30</TD>
+<TD class=style21>03.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367578800000</TD></TR>
+<TR>
+<TD class=style21>120</TD>
+<TD class=style21>0.2010</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0</TD>
+<TD class=style21>-</TD>
+<TD class=style21>10:00</TD>
+<TD class=style21>03.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367580600000</TD></TR>
+<TR>
+<TD class=style21>121</TD>
+<TD class=style21>0.3330</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0010</TD>
+<TD class=style21>-</TD>
+<TD class=style21>10:30</TD>
+<TD class=style21>03.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367582400000</TD></TR>
+<TR>
+<TD class=style21>122</TD>
+<TD class=style21>0.3040</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0020</TD>
+<TD class=style21>-</TD>
+<TD class=style21>11:00</TD>
+<TD class=style21>03.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367584200000</TD></TR>
+<TR>
+<TD class=style21>123</TD>
+<TD class=style21>0.2680</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0030</TD>
+<TD class=style21>-</TD>
+<TD class=style21>11:30</TD>
+<TD class=style21>03.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367586000000</TD></TR>
+<TR>
+<TD class=style21>124</TD>
+<TD class=style21>0.2890</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0010</TD>
+<TD class=style21>-</TD>
+<TD class=style21>12:00</TD>
+<TD class=style21>03.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367587800000</TD></TR>
+<TR>
+<TD class=style21>125</TD>
+<TD class=style21>0.2880</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0010</TD>
+<TD class=style21>-</TD>
+<TD class=style21>12:30</TD>
+<TD class=style21>03.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367589600000</TD></TR>
+<TR>
+<TD class=style21>126</TD>
+<TD class=style21>0.2920</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0020</TD>
+<TD class=style21>-</TD>
+<TD class=style21>13:00</TD>
+<TD class=style21>03.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367591400000</TD></TR>
+<TR>
+<TD class=style21>127</TD>
+<TD class=style21>0.2030</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0010</TD>
+<TD class=style21>-</TD>
+<TD class=style21>13:30</TD>
+<TD class=style21>03.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367593200000</TD></TR>
+<TR>
+<TD class=style21>128</TD>
+<TD class=style21>0.1740</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0010</TD>
+<TD class=style21>-</TD>
+<TD class=style21>14:00</TD>
+<TD class=style21>03.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367595000000</TD></TR>
+<TR>
+<TD class=style21>129</TD>
+<TD class=style21>0.2390</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0030</TD>
+<TD class=style21>-</TD>
+<TD class=style21>14:30</TD>
+<TD class=style21>03.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367596800000</TD></TR>
+<TR>
+<TD class=style21>130</TD>
+<TD class=style21>0.2470</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0</TD>
+<TD class=style21>-</TD>
+<TD class=style21>15:00</TD>
+<TD class=style21>03.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367598600000</TD></TR>
+<TR>
+<TD class=style21>131</TD>
+<TD class=style21>0.3090</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0010</TD>
+<TD class=style21>-</TD>
+<TD class=style21>15:30</TD>
+<TD class=style21>03.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367600400000</TD></TR>
+<TR>
+<TD class=style21>132</TD>
+<TD class=style21>0.2610</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0010</TD>
+<TD class=style21>-</TD>
+<TD class=style21>16:00</TD>
+<TD class=style21>03.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367602200000</TD></TR>
+<TR>
+<TD class=style21>133</TD>
+<TD class=style21>0.2780</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0020</TD>
+<TD class=style21>-</TD>
+<TD class=style21>16:30</TD>
+<TD class=style21>03.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367604000000</TD></TR>
+<TR>
+<TD class=style21>134</TD>
+<TD class=style21>0.3050</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0</TD>
+<TD class=style21>-</TD>
+<TD class=style21>17:00</TD>
+<TD class=style21>03.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367605800000</TD></TR>
+<TR>
+<TD class=style21>135</TD>
+<TD class=style21>0.3240</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0010</TD>
+<TD class=style21>-</TD>
+<TD class=style21>17:30</TD>
+<TD class=style21>03.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367607600000</TD></TR>
+<TR>
+<TD class=style21>136</TD>
+<TD class=style21>0.3070</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0010</TD>
+<TD class=style21>-</TD>
+<TD class=style21>18:00</TD>
+<TD class=style21>03.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367609400000</TD></TR>
+<TR>
+<TD class=style21>137</TD>
+<TD class=style21>0.2770</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0020</TD>
+<TD class=style21>-</TD>
+<TD class=style21>18:30</TD>
+<TD class=style21>03.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367611200000</TD></TR>
+<TR>
+<TD class=style21>138</TD>
+<TD class=style21>0.3890</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0020</TD>
+<TD class=style21>-</TD>
+<TD class=style21>19:00</TD>
+<TD class=style21>03.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367613000000</TD></TR>
+<TR>
+<TD class=style21>139</TD>
+<TD class=style21>0.4350</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0</TD>
+<TD class=style21>-</TD>
+<TD class=style21>19:30</TD>
+<TD class=style21>03.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367614800000</TD></TR>
+<TR>
+<TD class=style21>140</TD>
+<TD class=style21>0.4400</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0020</TD>
+<TD class=style21>-</TD>
+<TD class=style21>20:00</TD>
+<TD class=style21>03.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367616600000</TD></TR>
+<TR>
+<TD class=style21>141</TD>
+<TD class=style21>0.3890</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0</TD>
+<TD class=style21>-</TD>
+<TD class=style21>20:30</TD>
+<TD class=style21>03.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367618400000</TD></TR>
+<TR>
+<TD class=style21>142</TD>
+<TD class=style21>0.3370</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0020</TD>
+<TD class=style21>-</TD>
+<TD class=style21>21:00</TD>
+<TD class=style21>03.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367620200000</TD></TR>
+<TR>
+<TD class=style21>143</TD>
+<TD class=style21>0.2660</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0030</TD>
+<TD class=style21>-</TD>
+<TD class=style21>21:30</TD>
+<TD class=style21>03.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367622000000</TD></TR>
+<TR>
+<TD class=style21>144</TD>
+<TD class=style21>0.3670</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0010</TD>
+<TD class=style21>-</TD>
+<TD class=style21>22:00</TD>
+<TD class=style21>03.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367623800000</TD></TR>
+<TR>
+<TD class=style21>145</TD>
+<TD class=style21>0.4210</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0030</TD>
+<TD class=style21>-</TD>
+<TD class=style21>22:30</TD>
+<TD class=style21>03.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>Несоответствие</TD>
+<TD class=style21>1367625600000</TD></TR>
+<TR>
+<TD class=style21>146</TD>
+<TD class=style21>0.4640</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0030</TD>
+<TD class=style21>-</TD>
+<TD class=style21>23:00</TD>
+<TD class=style21>03.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>Несоответствие</TD>
+<TD class=style21>1367627400000</TD></TR>
+<TR>
+<TD class=style21>147</TD>
+<TD class=style21>0.5100</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0</TD>
+<TD class=style21>-</TD>
+<TD class=style21>23:30</TD>
+<TD class=style21>03.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>Несоответствие</TD>
+<TD class=style21>1367629200000</TD></TR>
+<TR>
+<TD class=style21>148</TD>
+<TD class=style21>0.5450</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0010</TD>
+<TD class=style21>-</TD>
+<TD class=style21>00:00</TD>
+<TD class=style21>04.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367631000000</TD></TR>
+<TR>
+<TD class=style21>149</TD>
+<TD class=style21>0.4580</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0030</TD>
+<TD class=style21>-</TD>
+<TD class=style21>00:30</TD>
+<TD class=style21>04.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367632800000</TD></TR>
+<TR>
+<TD class=style21>150</TD>
+<TD class=style21>0.4120</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0010</TD>
+<TD class=style21>-</TD>
+<TD class=style21>01:00</TD>
+<TD class=style21>04.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367634600000</TD></TR>
+<TR>
+<TD class=style21>151</TD>
+<TD class=style21>0.4580</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0</TD>
+<TD class=style21>-</TD>
+<TD class=style21>01:30</TD>
+<TD class=style21>04.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367636400000</TD></TR>
+<TR>
+<TD class=style21>152</TD>
+<TD class=style21>0.4180</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0</TD>
+<TD class=style21>-</TD>
+<TD class=style21>02:00</TD>
+<TD class=style21>04.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367638200000</TD></TR>
+<TR>
+<TD class=style21>153</TD>
+<TD class=style21>0.4800</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0010</TD>
+<TD class=style21>-</TD>
+<TD class=style21>02:30</TD>
+<TD class=style21>04.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367640000000</TD></TR>
+<TR>
+<TD class=style21>154</TD>
+<TD class=style21>0.3510</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0010</TD>
+<TD class=style21>-</TD>
+<TD class=style21>03:00</TD>
+<TD class=style21>04.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367641800000</TD></TR>
+<TR>
+<TD class=style21>155</TD>
+<TD class=style21>0.3230</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0</TD>
+<TD class=style21>-</TD>
+<TD class=style21>03:30</TD>
+<TD class=style21>04.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367643600000</TD></TR>
+<TR>
+<TD class=style21>156</TD>
+<TD class=style21>0.3440</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0010</TD>
+<TD class=style21>-</TD>
+<TD class=style21>04:00</TD>
+<TD class=style21>04.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367645400000</TD></TR>
+<TR>
+<TD class=style21>157</TD>
+<TD class=style21>0.3140</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0</TD>
+<TD class=style21>-</TD>
+<TD class=style21>04:30</TD>
+<TD class=style21>04.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367647200000</TD></TR>
+<TR>
+<TD class=style21>158</TD>
+<TD class=style21>0.3890</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0010</TD>
+<TD class=style21>-</TD>
+<TD class=style21>05:00</TD>
+<TD class=style21>04.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367649000000</TD></TR>
+<TR>
+<TD class=style21>159</TD>
+<TD class=style21>0.2240</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0010</TD>
+<TD class=style21>-</TD>
+<TD class=style21>05:30</TD>
+<TD class=style21>04.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367650800000</TD></TR>
+<TR>
+<TD class=style21>160</TD>
+<TD class=style21>0.2500</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0020</TD>
+<TD class=style21>-</TD>
+<TD class=style21>06:00</TD>
+<TD class=style21>04.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367652600000</TD></TR>
+<TR>
+<TD class=style21>161</TD>
+<TD class=style21>0.2690</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0</TD>
+<TD class=style21>-</TD>
+<TD class=style21>06:30</TD>
+<TD class=style21>04.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367654400000</TD></TR>
+<TR>
+<TD class=style21>162</TD>
+<TD class=style21>0.2740</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0</TD>
+<TD class=style21>-</TD>
+<TD class=style21>07:00</TD>
+<TD class=style21>04.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367656200000</TD></TR>
+<TR>
+<TD class=style21>163</TD>
+<TD class=style21>0.3500</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0020</TD>
+<TD class=style21>-</TD>
+<TD class=style21>07:30</TD>
+<TD class=style21>04.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367658000000</TD></TR>
+<TR>
+<TD class=style21>164</TD>
+<TD class=style21>0.3080</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0050</TD>
+<TD class=style21>-</TD>
+<TD class=style21>08:00</TD>
+<TD class=style21>04.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367659800000</TD></TR>
+<TR>
+<TD class=style21>165</TD>
+<TD class=style21>0.3730</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0010</TD>
+<TD class=style21>-</TD>
+<TD class=style21>08:30</TD>
+<TD class=style21>04.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367661600000</TD></TR>
+<TR>
+<TD class=style21>166</TD>
+<TD class=style21>0.2990</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0020</TD>
+<TD class=style21>-</TD>
+<TD class=style21>09:00</TD>
+<TD class=style21>04.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367663400000</TD></TR>
+<TR>
+<TD class=style21>167</TD>
+<TD class=style21>0.2930</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0020</TD>
+<TD class=style21>-</TD>
+<TD class=style21>09:30</TD>
+<TD class=style21>04.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367665200000</TD></TR>
+<TR>
+<TD class=style21>168</TD>
+<TD class=style21>0.3630</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0020</TD>
+<TD class=style21>-</TD>
+<TD class=style21>10:00</TD>
+<TD class=style21>04.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367667000000</TD></TR>
+<TR>
+<TD class=style21>169</TD>
+<TD class=style21>0.3490</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0010</TD>
+<TD class=style21>-</TD>
+<TD class=style21>10:30</TD>
+<TD class=style21>04.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367668800000</TD></TR>
+<TR>
+<TD class=style21>170</TD>
+<TD class=style21>0.3450</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0020</TD>
+<TD class=style21>-</TD>
+<TD class=style21>11:00</TD>
+<TD class=style21>04.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367670600000</TD></TR>
+<TR>
+<TD class=style21>171</TD>
+<TD class=style21>0.3240</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0050</TD>
+<TD class=style21>-</TD>
+<TD class=style21>11:30</TD>
+<TD class=style21>04.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367672400000</TD></TR>
+<TR>
+<TD class=style21>172</TD>
+<TD class=style21>0.4040</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0140</TD>
+<TD class=style21>-</TD>
+<TD class=style21>12:00</TD>
+<TD class=style21>04.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367674200000</TD></TR>
+<TR>
+<TD class=style21>173</TD>
+<TD class=style21>0.3730</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0180</TD>
+<TD class=style21>-</TD>
+<TD class=style21>12:30</TD>
+<TD class=style21>04.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367676000000</TD></TR>
+<TR>
+<TD class=style21>174</TD>
+<TD class=style21>0.3080</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0060</TD>
+<TD class=style21>-</TD>
+<TD class=style21>13:00</TD>
+<TD class=style21>04.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367677800000</TD></TR>
+<TR>
+<TD class=style21>175</TD>
+<TD class=style21>0.3240</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0070</TD>
+<TD class=style21>-</TD>
+<TD class=style21>13:30</TD>
+<TD class=style21>04.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367679600000</TD></TR>
+<TR>
+<TD class=style21>176</TD>
+<TD class=style21>0.3390</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0040</TD>
+<TD class=style21>-</TD>
+<TD class=style21>14:00</TD>
+<TD class=style21>04.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367681400000</TD></TR>
+<TR>
+<TD class=style21>177</TD>
+<TD class=style21>0.3100</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0030</TD>
+<TD class=style21>-</TD>
+<TD class=style21>14:30</TD>
+<TD class=style21>04.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367683200000</TD></TR>
+<TR>
+<TD class=style21>178</TD>
+<TD class=style21>0.3200</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0030</TD>
+<TD class=style21>-</TD>
+<TD class=style21>15:00</TD>
+<TD class=style21>04.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367685000000</TD></TR>
+<TR>
+<TD class=style21>179</TD>
+<TD class=style21>0.3770</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0040</TD>
+<TD class=style21>-</TD>
+<TD class=style21>15:30</TD>
+<TD class=style21>04.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367686800000</TD></TR>
+<TR>
+<TD class=style21>180</TD>
+<TD class=style21>0.2100</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0040</TD>
+<TD class=style21>-</TD>
+<TD class=style21>16:00</TD>
+<TD class=style21>04.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367688600000</TD></TR>
+<TR>
+<TD class=style21>181</TD>
+<TD class=style21>0.2670</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0040</TD>
+<TD class=style21>-</TD>
+<TD class=style21>16:30</TD>
+<TD class=style21>04.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367690400000</TD></TR>
+<TR>
+<TD class=style21>182</TD>
+<TD class=style21>0.3020</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0020</TD>
+<TD class=style21>-</TD>
+<TD class=style21>17:00</TD>
+<TD class=style21>04.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367692200000</TD></TR>
+<TR>
+<TD class=style21>183</TD>
+<TD class=style21>0.2560</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0030</TD>
+<TD class=style21>-</TD>
+<TD class=style21>17:30</TD>
+<TD class=style21>04.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367694000000</TD></TR>
+<TR>
+<TD class=style21>184</TD>
+<TD class=style21>0.2780</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0030</TD>
+<TD class=style21>-</TD>
+<TD class=style21>18:00</TD>
+<TD class=style21>04.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367695800000</TD></TR>
+<TR>
+<TD class=style21>185</TD>
+<TD class=style21>0.2240</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0020</TD>
+<TD class=style21>-</TD>
+<TD class=style21>18:30</TD>
+<TD class=style21>04.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367697600000</TD></TR>
+<TR>
+<TD class=style21>186</TD>
+<TD class=style21>0.2040</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0050</TD>
+<TD class=style21>-</TD>
+<TD class=style21>19:00</TD>
+<TD class=style21>04.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367699400000</TD></TR>
+<TR>
+<TD class=style21>187</TD>
+<TD class=style21>0.2850</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0020</TD>
+<TD class=style21>-</TD>
+<TD class=style21>19:30</TD>
+<TD class=style21>04.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367701200000</TD></TR>
+<TR>
+<TD class=style21>188</TD>
+<TD class=style21>0.3050</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0040</TD>
+<TD class=style21>-</TD>
+<TD class=style21>20:00</TD>
+<TD class=style21>04.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367703000000</TD></TR>
+<TR>
+<TD class=style21>189</TD>
+<TD class=style21>0.2430</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0100</TD>
+<TD class=style21>-</TD>
+<TD class=style21>20:30</TD>
+<TD class=style21>04.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367704800000</TD></TR>
+<TR>
+<TD class=style21>190</TD>
+<TD class=style21>0.1900</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0040</TD>
+<TD class=style21>-</TD>
+<TD class=style21>21:00</TD>
+<TD class=style21>04.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367706600000</TD></TR>
+<TR>
+<TD class=style21>191</TD>
+<TD class=style21>0.2440</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0020</TD>
+<TD class=style21>-</TD>
+<TD class=style21>21:30</TD>
+<TD class=style21>04.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367708400000</TD></TR>
+<TR>
+<TD class=style21>192</TD>
+<TD class=style21>0.3790</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0010</TD>
+<TD class=style21>-</TD>
+<TD class=style21>22:00</TD>
+<TD class=style21>04.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367710200000</TD></TR>
+<TR>
+<TD class=style21>193</TD>
+<TD class=style21>0.4170</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0010</TD>
+<TD class=style21>-</TD>
+<TD class=style21>22:30</TD>
+<TD class=style21>04.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>Несоответствие</TD>
+<TD class=style21>1367712000000</TD></TR>
+<TR>
+<TD class=style21>194</TD>
+<TD class=style21>0.4350</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0010</TD>
+<TD class=style21>-</TD>
+<TD class=style21>23:00</TD>
+<TD class=style21>04.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>Несоответствие</TD>
+<TD class=style21>1367713800000</TD></TR>
+<TR>
+<TD class=style21>195</TD>
+<TD class=style21>0.4650</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0</TD>
+<TD class=style21>-</TD>
+<TD class=style21>23:30</TD>
+<TD class=style21>04.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>Несоответствие</TD>
+<TD class=style21>1367715600000</TD></TR>
+<TR>
+<TD class=style21>196</TD>
+<TD class=style21>0.4380</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0</TD>
+<TD class=style21>-</TD>
+<TD class=style21>00:00</TD>
+<TD class=style21>05.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367717400000</TD></TR>
+<TR>
+<TD class=style21>197</TD>
+<TD class=style21>0.4240</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0020</TD>
+<TD class=style21>-</TD>
+<TD class=style21>00:30</TD>
+<TD class=style21>05.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367719200000</TD></TR>
+<TR>
+<TD class=style21>198</TD>
+<TD class=style21>0.3580</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0</TD>
+<TD class=style21>-</TD>
+<TD class=style21>01:00</TD>
+<TD class=style21>05.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367721000000</TD></TR>
+<TR>
+<TD class=style21>199</TD>
+<TD class=style21>0.3630</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0020</TD>
+<TD class=style21>-</TD>
+<TD class=style21>01:30</TD>
+<TD class=style21>05.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367722800000</TD></TR>
+<TR>
+<TD class=style21>200</TD>
+<TD class=style21>0.3760</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0020</TD>
+<TD class=style21>-</TD>
+<TD class=style21>02:00</TD>
+<TD class=style21>05.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367724600000</TD></TR>
+<TR>
+<TD class=style21>201</TD>
+<TD class=style21>0.3390</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0040</TD>
+<TD class=style21>-</TD>
+<TD class=style21>02:30</TD>
+<TD class=style21>05.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367726400000</TD></TR>
+<TR>
+<TD class=style21>202</TD>
+<TD class=style21>0.3000</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0020</TD>
+<TD class=style21>-</TD>
+<TD class=style21>03:00</TD>
+<TD class=style21>05.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367728200000</TD></TR>
+<TR>
+<TD class=style21>203</TD>
+<TD class=style21>0.2690</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0</TD>
+<TD class=style21>-</TD>
+<TD class=style21>03:30</TD>
+<TD class=style21>05.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367730000000</TD></TR>
+<TR>
+<TD class=style21>204</TD>
+<TD class=style21>0.2690</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0</TD>
+<TD class=style21>-</TD>
+<TD class=style21>04:00</TD>
+<TD class=style21>05.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367731800000</TD></TR>
+<TR>
+<TD class=style21>205</TD>
+<TD class=style21>0.2330</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0010</TD>
+<TD class=style21>-</TD>
+<TD class=style21>04:30</TD>
+<TD class=style21>05.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367733600000</TD></TR>
+<TR>
+<TD class=style21>206</TD>
+<TD class=style21>0.2670</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0010</TD>
+<TD class=style21>-</TD>
+<TD class=style21>05:00</TD>
+<TD class=style21>05.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367735400000</TD></TR>
+<TR>
+<TD class=style21>207</TD>
+<TD class=style21>0.1950</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0</TD>
+<TD class=style21>-</TD>
+<TD class=style21>05:30</TD>
+<TD class=style21>05.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367737200000</TD></TR>
+<TR>
+<TD class=style21>208</TD>
+<TD class=style21>0.1990</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0010</TD>
+<TD class=style21>-</TD>
+<TD class=style21>06:00</TD>
+<TD class=style21>05.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367739000000</TD></TR>
+<TR>
+<TD class=style21>209</TD>
+<TD class=style21>0.2130</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0010</TD>
+<TD class=style21>-</TD>
+<TD class=style21>06:30</TD>
+<TD class=style21>05.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367740800000</TD></TR>
+<TR>
+<TD class=style21>210</TD>
+<TD class=style21>0.1900</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0010</TD>
+<TD class=style21>-</TD>
+<TD class=style21>07:00</TD>
+<TD class=style21>05.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367742600000</TD></TR>
+<TR>
+<TD class=style21>211</TD>
+<TD class=style21>0.2560</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0020</TD>
+<TD class=style21>-</TD>
+<TD class=style21>07:30</TD>
+<TD class=style21>05.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367744400000</TD></TR>
+<TR>
+<TD class=style21>212</TD>
+<TD class=style21>0.3180</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0020</TD>
+<TD class=style21>-</TD>
+<TD class=style21>08:00</TD>
+<TD class=style21>05.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367746200000</TD></TR>
+<TR>
+<TD class=style21>213</TD>
+<TD class=style21>0.3130</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0040</TD>
+<TD class=style21>-</TD>
+<TD class=style21>08:30</TD>
+<TD class=style21>05.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367748000000</TD></TR>
+<TR>
+<TD class=style21>214</TD>
+<TD class=style21>0.3600</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0100</TD>
+<TD class=style21>-</TD>
+<TD class=style21>09:00</TD>
+<TD class=style21>05.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367749800000</TD></TR>
+<TR>
+<TD class=style21>215</TD>
+<TD class=style21>0.3410</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0090</TD>
+<TD class=style21>-</TD>
+<TD class=style21>09:30</TD>
+<TD class=style21>05.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367751600000</TD></TR>
+<TR>
+<TD class=style21>216</TD>
+<TD class=style21>0.3960</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0030</TD>
+<TD class=style21>-</TD>
+<TD class=style21>10:00</TD>
+<TD class=style21>05.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367753400000</TD></TR>
+<TR>
+<TD class=style21>217</TD>
+<TD class=style21>0.4450</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0</TD>
+<TD class=style21>-</TD>
+<TD class=style21>10:30</TD>
+<TD class=style21>05.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367755200000</TD></TR>
+<TR>
+<TD class=style21>218</TD>
+<TD class=style21>0.4220</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0010</TD>
+<TD class=style21>-</TD>
+<TD class=style21>11:00</TD>
+<TD class=style21>05.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367757000000</TD></TR>
+<TR>
+<TD class=style21>219</TD>
+<TD class=style21>0.3440</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0080</TD>
+<TD class=style21>-</TD>
+<TD class=style21>11:30</TD>
+<TD class=style21>05.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367758800000</TD></TR>
+<TR>
+<TD class=style21>220</TD>
+<TD class=style21>0.2720</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0050</TD>
+<TD class=style21>-</TD>
+<TD class=style21>12:00</TD>
+<TD class=style21>05.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367760600000</TD></TR>
+<TR>
+<TD class=style21>221</TD>
+<TD class=style21>0.3340</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0020</TD>
+<TD class=style21>-</TD>
+<TD class=style21>12:30</TD>
+<TD class=style21>05.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367762400000</TD></TR>
+<TR>
+<TD class=style21>222</TD>
+<TD class=style21>0.3370</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0020</TD>
+<TD class=style21>-</TD>
+<TD class=style21>13:00</TD>
+<TD class=style21>05.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367764200000</TD></TR>
+<TR>
+<TD class=style21>223</TD>
+<TD class=style21>0.2990</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0020</TD>
+<TD class=style21>-</TD>
+<TD class=style21>13:30</TD>
+<TD class=style21>05.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367766000000</TD></TR>
+<TR>
+<TD class=style21>224</TD>
+<TD class=style21>0.2300</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0050</TD>
+<TD class=style21>-</TD>
+<TD class=style21>14:00</TD>
+<TD class=style21>05.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367767800000</TD></TR>
+<TR>
+<TD class=style21>225</TD>
+<TD class=style21>0.1640</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0</TD>
+<TD class=style21>-</TD>
+<TD class=style21>14:30</TD>
+<TD class=style21>05.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367769600000</TD></TR>
+<TR>
+<TD class=style21>226</TD>
+<TD class=style21>0.2390</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0010</TD>
+<TD class=style21>-</TD>
+<TD class=style21>15:00</TD>
+<TD class=style21>05.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367771400000</TD></TR>
+<TR>
+<TD class=style21>227</TD>
+<TD class=style21>0.2770</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0030</TD>
+<TD class=style21>-</TD>
+<TD class=style21>15:30</TD>
+<TD class=style21>05.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367773200000</TD></TR>
+<TR>
+<TD class=style21>228</TD>
+<TD class=style21>0.2470</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0030</TD>
+<TD class=style21>-</TD>
+<TD class=style21>16:00</TD>
+<TD class=style21>05.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367775000000</TD></TR>
+<TR>
+<TD class=style21>229</TD>
+<TD class=style21>0.2540</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0060</TD>
+<TD class=style21>-</TD>
+<TD class=style21>16:30</TD>
+<TD class=style21>05.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367776800000</TD></TR>
+<TR>
+<TD class=style21>230</TD>
+<TD class=style21>0.1890</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0010</TD>
+<TD class=style21>-</TD>
+<TD class=style21>17:00</TD>
+<TD class=style21>05.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367778600000</TD></TR>
+<TR>
+<TD class=style21>231</TD>
+<TD class=style21>0.2550</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0020</TD>
+<TD class=style21>-</TD>
+<TD class=style21>17:30</TD>
+<TD class=style21>05.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367780400000</TD></TR>
+<TR>
+<TD class=style21>232</TD>
+<TD class=style21>0.2040</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0050</TD>
+<TD class=style21>-</TD>
+<TD class=style21>18:00</TD>
+<TD class=style21>05.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367782200000</TD></TR>
+<TR>
+<TD class=style21>233</TD>
+<TD class=style21>0.2440</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0030</TD>
+<TD class=style21>-</TD>
+<TD class=style21>18:30</TD>
+<TD class=style21>05.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367784000000</TD></TR>
+<TR>
+<TD class=style21>234</TD>
+<TD class=style21>0.2490</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0060</TD>
+<TD class=style21>-</TD>
+<TD class=style21>19:00</TD>
+<TD class=style21>05.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367785800000</TD></TR>
+<TR>
+<TD class=style21>235</TD>
+<TD class=style21>0.2510</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0020</TD>
+<TD class=style21>-</TD>
+<TD class=style21>19:30</TD>
+<TD class=style21>05.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367787600000</TD></TR>
+<TR>
+<TD class=style21>236</TD>
+<TD class=style21>0.2210</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0020</TD>
+<TD class=style21>-</TD>
+<TD class=style21>20:00</TD>
+<TD class=style21>05.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367789400000</TD></TR>
+<TR>
+<TD class=style21>237</TD>
+<TD class=style21>0.3040</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0070</TD>
+<TD class=style21>-</TD>
+<TD class=style21>20:30</TD>
+<TD class=style21>05.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367791200000</TD></TR>
+<TR>
+<TD class=style21>238</TD>
+<TD class=style21>0.3900</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0030</TD>
+<TD class=style21>-</TD>
+<TD class=style21>21:00</TD>
+<TD class=style21>05.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367793000000</TD></TR>
+<TR>
+<TD class=style21>239</TD>
+<TD class=style21>0.3940</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0010</TD>
+<TD class=style21>-</TD>
+<TD class=style21>21:30</TD>
+<TD class=style21>05.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367794800000</TD></TR>
+<TR>
+<TD class=style21>240</TD>
+<TD class=style21>0.5290</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0020</TD>
+<TD class=style21>-</TD>
+<TD class=style21>22:00</TD>
+<TD class=style21>05.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>-</TD>
+<TD class=style21>1367796600000</TD></TR>
+<TR>
+<TD class=style21>241</TD>
+<TD class=style21>0.3850</TD>
+<TD class=style21>-</TD>
+<TD class=style21>0.0020</TD>
+<TD class=style21>-</TD>
+<TD class=style21>22:30</TD>
+<TD class=style21>05.05.2013</TD>
+<TD class=style21>30</TD>
+<TD class=style21>Несоответствие</TD>
+<TD class=style21>1367798400000</TD></TR></TBODY>
+			</table>
+
+			<script type="text/javascript">
+
+				var d1 = [];
+				var d2 = [];
+				var d3 = [];
+				var d4 = [];
+
+				var datasets = {"A+": {label: "A+",data: d1},"A-": {label: "A-", data: d2},"R+": {label: "R+",data: d3},"R-": {label: "R-",data: d4}};
+				var datasets1 = {"A+": {data: d1},"A-": {data: d2},"R+": {data: d3},"R-": {data: d4}};
+
+				var data = [];
+				var data1 = [];
+
+				// hard-code color indices to prevent them from shifting as
+				// countries are turned on/off
+				var i = 0;
+				$.each(datasets, function(key, val) {
+					val.color = i;
+					++i;
+				});
+
+				var i = 0;
+				$.each(datasets1, function(key, val) {
+					val.color = i;
+					++i;
+				});
+
+				// insert checkboxes
+				var choiceContainer = $("#choices");
+				$.each(datasets, function(key, val) {
+					choiceContainer.append('<br/><input type="checkbox" name="' + key +
+										   '" checked="checked" id="id' + key + '">' +
+										   '<label for="id' + key + '">'
+											+ val.label + '</label>');
+				});
+				choiceContainer.find("input").click(plotAccordingToChoices);
+
+				var plot = $.plot($("#placeholder"), data, {
+					lines: {show: true,fill: true},
+					points: {show: false},
+					xaxis: {mode: "time"},
+					yaxis: {min: 0},
+					grid: {backgroundColor: { colors: ["#fff", "#eee"] }}
+				});
+
+				var overview = $.plot($("#overview"), data1, {
+					lines: {show: true,fill: true},
+					points: {show: false},
+					xaxis: {mode: "time"},
+					yaxis: {min: 0},
+					grid: {backgroundColor: { colors: ["#fff", "#eee"] }},
+					selection: { mode: "x" }
+				});
+
+				$("#placeholder").bind("plotselected", function (event, ranges) {
+					// do the zooming
+					plot = $.plot($("#placeholder"), data,
+					  $.extend(true, {}, {
+						lines: {show: true, fill: true},
+						points: {show: false},
+						xaxis: {mode: "time", min: ranges.xaxis.from, max: ranges.xaxis.to },
+						yaxis: {min: 0},
+						grid: {backgroundColor: { colors: ["#fff", "#eee"] }},
+						selection: { mode: "x" }
+					  }));
+
+					// don't fire event on the overview to prevent eternal loop
+					overview.setSelection(ranges, true);
+				});
+
+				$("#overview").bind("plotselected", function (event, ranges) {
+					plot.setSelection(ranges);
+				});
+
+				function plotAccordingToChoices() {
+					data = [];
+					data1 = [];
+					data1 = [];
+
+					choiceContainer.find("input:checked").each(function () {
+						var key = $(this).attr("name");
+						if (key && datasets[key]) {
+							data.push(datasets[key]);
+
+						};
+
+						 if (key && datasets1[key]) {
+							 data1.push(datasets1[key]);
+						};
+					});
+
+					if (data.length > 0) {
+						plot = $.plot($("#placeholder"), data, {
+							lines: {show: true,fill: true},
+							points: {show: false},
+							xaxis: {mode: "time"},
+							yaxis: {min: 0},
+							grid: {backgroundColor: { colors: ["#fff", "#eee"] }}
+						});
+					};
+
+					if (data1.length > 0) {
+						overview = $.plot($("#overview"), data1, {
+							lines: {show: true,fill: true},
+							points: {show: false},
+							xaxis: {mode: "time"},
+							yaxis: {min: 0},
+							grid: {backgroundColor: { colors: ["#fff", "#eee"] }},
+							selection: { mode: "x" }
+						});
+
+					};
+				}
+
+				plotAccordingToChoices();
+
+				</script>
+
+			<script type="text/javascript">
+
+			/* функция поиска и обработки таблиц */
+			function parseTable() {
+		d1=[];
+		d2=[];
+		d3=[];
+		d4=[];
+
+		// ищем таблицу
+		var tbls = document.getElementById("tableGraph2");
+
+		// последовательнный перебор строк
+		for (var r=0; r<tbls.rows.length; r++) {
+			if (r>0) {
+				// последовательнный перебор ячеек
+				for (var c=0; c<tbls.rows[r].cells.length; c++) {
+					if (c>0) {
+						var cls = tbls.rows[r].cells[c];
+
+						if (c==1)
+						{
+							rr = tbls.rows[r].cells[c+8].innerText;
+							d1.push([rr, cls.innerText]);
+						}
+
+						if (c==2)
+						{
+							rr = tbls.rows[r].cells[c+7].innerText;
+							d2.push([rr, cls.innerText]);
+						}
+
+						if (c==3)
+						{
+							rr = tbls.rows[r].cells[c+6].innerText;
+							d3.push([rr, cls.innerText]);
+						}
+
+						if (c==4)
+						{
+							rr = tbls.rows[r].cells[c+5].innerText;
+							d4.push([rr, cls.innerText]);
+						}
+					}
+				}
+			}
+		}
+
+		datasets = {"A+": {label: "A+",data: d1},"A-": {label: "A-", data: d2},"R+": {label: "R+",data: d3},"R-": {label: "R-",data: d4}};
+		datasets1 = {"A+": {data: d1},"A-": {data: d2},"R+": {data: d3},"R-": {data: d4}};
+
+		data = [];
+        data1 = [];
+
+		// hard-code color indices to prevent them from shifting as
+		// countries are turned on/off
+		var i = 0;
+		$.each(datasets, function(key, val) {
+			val.color = i;
+			++i;
+		});
+
+		var i = 0;
+		$.each(datasets1, function(key, val) {
+			val.color = i;
+			++i;
+		});
+
+
+		choiceContainer.find("input:checked").each(function () {
+            var key = $(this).attr("name");
+            if (key && datasets[key]) {
+				data.push(datasets[key]);
+			};
+
+			 if (key && datasets1[key]) {
+                 data1.push(datasets1[key]);
+			};
+
+        });
+
+
+			plot = $.plot($("#placeholder"), data, {
+				lines: {show: true,fill: true},
+				points: {show: false},
+				xaxis: {mode: "time"},
+				yaxis: {min: 0},
+				grid: {backgroundColor: { colors: ["#fff", "#eee"] }}
+			});
+
+			overview = $.plot($("#overview"), data1, {
+				lines: {show: true,fill: true},
+				points: {show: false},
+				xaxis: {mode: "time"},
+				yaxis: {min: 0},
+				grid: {backgroundColor: { colors: ["#fff", "#eee"] }},
+				selection: { mode: "x" }
+			});
+
+
+
+
+	}
+
+			parseTable();
+
+
+			</script>
+			</BODY></HTML>

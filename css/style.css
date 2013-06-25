@@ -1,0 +1,348 @@
+
+@font-face 
+{
+    font-family: Cuprum; /* Имя шрифта */
+    src: url(fonts/Cuprum.ttf); /* Путь к файлу со шрифтом */
+}
+   
+
+body 
+{
+	background-color: #D1D6D5;
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	/*Шрифт*/
+	font-family: Cuprum, 'Trebuchet MS', Verdana;
+	color: #3D6767;
+	text-decoration: none;
+	word-spacing: normal;
+	text-align: left;
+	letter-spacing: 0;
+	line-height: 1.1em;
+	font-size: 1.1em;
+}
+
+a 
+{
+	text-decoration:none;	
+	color: #3D6767;
+}
+
+a:hover
+{
+	color: #8AC9CC;
+}
+
+a:active
+{
+	color: #1E78A8;
+}
+
+.page_center
+{
+	top: 60%; /* Отступ в процентах от верхнего края окна */
+	left: 50%; /* Отступ в процентах от левого края окна */
+	width: 450px; /* Ширина блока */
+	height: 450px; /* Высота блока */
+	position: absolute; /* Абсолютное позиционирование блока */
+	margin-top: -225px; /* Отрицательный отступ от верхнего края страницы, должен равняться половине высоты блока со знаком минус */
+	margin-left: -225px; /* Отрицательный отступ от левого края страницы, должен равняться половине высоты блока со знаком минус *//
+}
+
+
+p.article 
+{
+	padding: 10px;
+	text-align:justify;
+}
+
+.thin-border
+{
+	margin: 5px;
+	border: 1px solid #CCCCCC;
+	border-radius: 7px 7px 7px 7px;
+	-webkit-border-radius:7px 7px 7px 7px;
+	-moz-border-radius:7px 7px 7px 7px;
+	/*Тень*/
+	-moz-box-shadow: 0 10px 1px #F2F2F2, 0 1px 0 #CCCCCC;
+	-webkit-box-shadow: 0 1px 1px #F2F2F2, 0 1px 0 #CCCCCC;
+	box-shadow: 1px 1px 1px #F2F2F2, 2px 2px 2px #CCCCCC;
+	
+
+	
+	
+}
+
+/*******Логотип*******/
+
+.logo
+{
+	font-size: 42px;
+	float:left;
+	font-family:  Impact, Cuprum, Verdana;
+	padding: 15px 0px 0px 10px;
+}
+
+.left-margin
+{
+	margin-left: 10px;
+}
+
+.deep-blue
+{
+		color: #0061A6;
+
+}
+.blue
+{
+		color: #0094ff;
+		float: none;
+}
+.small 
+{
+		font-size: 20px;
+		float:left;
+		padding-top: 5px;
+		font-family: Cuprum, Impact, Verdana;
+}
+
+
+
+
+/****Позиционирование блоков****/
+.right
+{
+	float: left;
+	margin: 5px;
+	margin-left: 3px;
+}
+
+
+.left
+{
+	float: left;
+	margin: 5px;
+	margin-right: 3px;
+}
+
+.wide
+{
+	width: 77%;	
+}
+
+.narrow
+{
+	width: 20%;	
+}
+
+.half
+{
+	width: 48%;
+}
+
+
+.center
+{
+	width: 100%;
+	float: right;
+}
+
+
+
+/****Структурные элементы****/
+
+.c-header
+{
+	min-height: 75px;
+	background-image:url(../images/h_bg.png);
+}
+
+
+/*Окно*/
+.box 
+{
+	margin: 5px 5px 5px 5px;
+	border:2px solid #0094ff;
+	/*Закругление углов*/
+	border-radius: 7px 7px 0 0;
+	-webkit-border-radius:7px 7px 0 0;
+	-moz-border-radius:7px 7px 0 0;
+}
+
+/*Заголовок окна*/
+.title 
+{
+	background:#0094ff;
+	
+	/*Заливка градиентом*/ 
+	background-color: #0186ba;
+	background-image: -moz-linear-gradient(#04acec,  #0186ba);	
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#04acec), to(#0186ba));
+	background-image: -webkit-linear-gradient(#04acec, #0186ba);
+	background-image: -o-linear-gradient(#04acec, #0186ba);
+	background-image: -ms-linear-gradient(#04acec, #0186ba);
+	background-image: linear-gradient(#04acec, #0186ba);
+	min-height: 20px;
+	vertical-align: central;
+	color:white;
+	padding: 5px;	
+}
+
+/*Содержимое окна*/
+.content 
+{
+	/*Две строчки ниже - чтобы убрать странный эффект "схлопывания" padding'ов*/
+	width: 100%;
+	display: inline-block;
+	background: white;
+	color:#333;
+}
+
+.height450
+{
+	min-height: 450px;
+}
+
+/*div с отступами*/
+.article
+{
+	margin: 15px;
+}
+
+.text-header
+{
+	color: #0B0D6C;
+}
+
+/************Информационные окна************/
+.message {
+    background: #FFFFE0;
+    border: solid 1px #E6DB55;
+    padding: 12px;
+	margin: 10px;
+    border-radius: 3px;
+    text-indent: 0;
+}
+ 
+.message.error {
+	color: #CC0000;
+    background-color: #FFEBE8;
+    border-color: #CC0000;
+}
+
+.message.success {
+	color: #75CC7B;
+    background-color: #E1F4E2;
+    border-color: #75CC7B;
+}
+
+
+/*********************Таблицы*************************/
+table.simple
+{
+	border: 2px solid #42978C;
+	border-collapse: collapse;
+	width: 100%;
+}              
+ 
+
+table.simple thead
+{
+	background: #EAEDF7;
+	color:#314A64;
+	padding: 5px;	
+	cursor: pointer;
+	font-weight:bold;
+}
+
+table.simple th 
+{		
+	vertical-align: middle;
+	padding: 2px;
+	border: 1px solid #42978C;
+} 
+
+
+
+table.simple td, tr 
+{
+	font-size:16px;		
+	text-align:left;
+	vertical-align: middle;
+	border: 1px solid #42978C;
+	padding-left: 5px;
+}
+
+
+table.simple.last td, tr 
+{
+	width: 100%;
+}
+
+/*****************************************/
+.modalDialog 
+{
+	    position: fixed;
+	    top: 0;
+	    right: 0;
+	    bottom: 0;
+	    left: 0;
+	    background: rgba(0,0,0,0.8);
+	    z-index: 99999;
+	    -webkit-transition: opacity 400ms ease-in;
+	    -moz-transition: opacity 400ms ease-in;
+	    transition: opacity 400ms ease-in;
+	    display: none;
+	    pointer-events: none;
+}
+
+/*Псевдо класс target изменяет режим вывода элемента, поэтому наше модальное окно будет выводиться при нажатии на ссылку*/
+.modalDialog:target 
+{
+	    display: block;
+	    pointer-events: auto;
+}
+
+	 
+.modalDialog > div {
+	    width: 400px;
+	    position: relative;
+	    margin: 10% auto;
+	    padding: 5px 20px 13px 20px;
+		border: 3px solid #04acec;
+	    border-radius: 7px;
+	    background: #fff;
+
+}
+
+.close 
+{
+	    background: #606061;
+	    color: #FFFFFF;
+	    line-height: 25px;
+	    position: absolute;
+	    right: -12px;
+	    text-align: center;
+	    top: -10px;
+	    width: 24px;
+	    text-decoration: none;
+	    font-weight: bold;
+	    -webkit-border-radius: 12px;
+	    -moz-border-radius: 12px;
+	    border-radius: 12px;
+	    -moz-box-shadow: 1px 1px 3px #000;
+	    -webkit-box-shadow: 1px 1px 3px #000;
+	    box-shadow: 1px 1px 3px #000;
+}
+	 
+.close:hover 
+{
+	color: #000066;
+	background: #00d9ff; 
+}
+
+
+
+
+

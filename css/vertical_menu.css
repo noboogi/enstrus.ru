@@ -1,0 +1,37 @@
+
+
+.vertmenu {
+	margin:0;
+	padding:0;
+}
+
+.vertmenu ul{
+
+	margin:0;
+	padding:0px;
+	border:1px solid #cfe7aa;
+}
+.vertmenu li{
+	display:marker;
+	list-style:none;
+	padding-bottom:1px;
+}
+.vertmenu li a{
+	display:block;
+	font-family:Tahoma, Geneva, sans-serif;
+	font-size:15px;
+	font-weight:bold;
+
+	text-shadow:#FFF 1px 1px 1px;
+	text-decoration:none;
+	background-color:#F7F7FB;
+	padding:5px;
+	border-left:14px solid #0094ff;
+	
+	
+}
+.vertmenu li a:hover{
+	border-left:14px solid #0094ff;
+	background-color:#E4F0F3;
+	color:#000033;
+}
