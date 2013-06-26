@@ -19,7 +19,8 @@ class Model_building_passport extends Model
 		if (!$this->check_session()) {header('Location:/login');} 
 		
 		$building_id = $this->CheckBidAccessLevel($_GET['bid']);
-		$data['bid'] = $building_id; 
+		$data['bid'] = $building_id;
+		$eid = $this->CheckEidAccessLevel($_GET['eid']); 
 		$data['address'] = $this->GetAddress($building_id);
 			
 		//В зависимости от запрошенного раздела ЛК сформируем данные
@@ -44,19 +45,18 @@ class Model_building_passport extends Model
 					$startDate 	= 	isset($_POST['startDate']) 	? $this->SafeSQL($_POST['startDate'])	: $date->format('o-m-d'); //Дата начала отбора
 					$endDate 	= 	isset($_POST['endDate']) 	? $this->SafeSQL($_POST['endDate'])		: date("o-m-d");		  //Дата конца отбора
 					$data['measurements'] = $this->GetMeasurements($eid, $measurementsFrequency, $startDate, $endDate);					
-					$data['eid'] = $eid;
+
 					$data['startDate'] = $startDate;
 					$data['endDate'] = $endDate;
 				break;
 				case "emelementChars":
-					$eid = $this->CheckEidAccessLevel($_GET['eid']);
 					$data['eChars'] = $this->GetEmelementData($eid)['eChars'];
-					$data['eTypesList'] = $this->GetEmelementData($eid)['eTypesList'];
-					$data['esnum'] = $this->GetEmelementSnum($eid);				
+					$data['eTypesList'] = $this->GetEmelementData($eid)['eTypesList'];			
 				break;
 			} //end of Switch			
 		} //end of If
-		
+		$data['esnum'] = $this->GetEmelementSnum($eid);	
+		$data['eid'] = $eid;
 		return $data;
 	}
 
@@ -72,6 +72,9 @@ class Model_building_passport extends Model
 						AND `date` BETWEEN "'.$startDate.'" AND "'.$endDate.'"
 						AND emelement.id = '.$eid.
 						'ORDER BY `date`';
+			$res = $this->EvaluateQuery($query);
+			$mes = array();
+			
 		}
 		else {
 			//Измерения по часам преобразуем в измерени по месяцам

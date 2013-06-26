@@ -11,7 +11,7 @@
 
 <div class="box right wide">
 	<div class="title">
-		<div style="float: left">Счётчик № <?php echo $data['esn']; ?></div>
+		<div style="float: left">Счётчик № <?php echo $data['esnum']; ?></div>
 		<div style="float: right"><?php echo $data['address']; ?>
 
 		</div>
