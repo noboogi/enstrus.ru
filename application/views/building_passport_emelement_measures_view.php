@@ -22,6 +22,7 @@
 		<?php GetAsBlock("emelement_menu"); ?>	
 		<!--/Меню офиса-->
 		<div style="padding: 5px">
+		<?php var_dump($data['measurements'])?>
 		<table width="100%" class="simple">
 		  <thead>
             <tr>

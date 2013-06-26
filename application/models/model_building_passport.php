@@ -61,20 +61,35 @@ class Model_building_passport extends Model
 	}
 
 	private function GetMeasurements($eid, $measurementsFrequency, $startDate, $endDate) {
+		$measurementsTable = array();
+		
 		//Выбор таблицы в зависимости от частоты измерения счётчика
-		$query = '';
 		if ($measurementsFrequency == 0) {
 			//Измерения по месяцам
-			$query = '	SELECT DATE_FORMAT(`date`,"%Y") AS `year`, DATE_FORMAT(`date`,"%m") AS `month`, 
-						`total`*emelement.cRatio AS `total`, `day`*emelement.cRatio AS `day`, `night`*emelement.cRatio AS `night` 
+			$query = '	SELECT DATE_FORMAT(`date`,"%Y") AS `year`, DATE_FORMAT(`date`,"%m") AS `month`, DATE_FORMAT(`date`,"%d") AS `day`,
+						`total`*emelement.cRatio AS `totalValue`, `day`*emelement.cRatio AS `dayValue`, `night`*emelement.cRatio AS `nightValue` 
 						FROM `emelement`, `electricity_measurement_month`
 						WHERE emelement.id = electricity_measurement_month.emelement_id
 						AND `date` BETWEEN "'.$startDate.'" AND "'.$endDate.'"
 						AND emelement.id = '.$eid.
 						'ORDER BY `date`';
-			$res = $this->EvaluateQuery($query);
-			$mes = array();
-			
+			$res = $this->evaluate_Query($query);
+			if ($res) {
+				while ($row = mysql_fetch_array($res, MYSQL_ASSOC)) 
+				{
+					$year = $row['year']; $month = $row['month']; $day = $row['day'];
+					$totalValue = $row['totalValue']; $dayValue = $row['dayValue']; $nightValue = $row['nightValue'];
+					$prevValues = $this->GetPrevMonthValues($year, $month, $eid);
+					$prevTotal = $prevValues['totalValues'];
+					$prevDay = $prevValues['dayValues'];
+					$prevNight = $prevValues['nightValues'];
+					
+					$row['deltaTotal'] = $totalValue - $prevTotal;
+					$row['deltaDay'] = $dayValue - $prevDay;
+					$row['deltaNight'] = $nightValue - $prevNight;
+					$measurementsTable[] = $row;		
+				}
+			}
 		}
 		else {
 			//Измерения по часам преобразуем в измерени по месяцам
@@ -86,7 +101,41 @@ class Model_building_passport extends Model
 						GROUP BY `month`
 						ORDER BY `date`';
 		}
+		return $measurementsTable;
+	}
+	
+	private function GetPrevMonthValue($year, $month, $eid) {
+		//смещаем заданную дату на месяц назад
+		$year = ($month==1) ? $year-1 : $year;
+		$month = ($month==1) ? 12 : $month;
+		$startDate = $year."-".$month."-00";
+		$endDate = $year."-".$month."-31";
 		
+		$query = '	SELECT `total`*emelement.cRatio AS `totalValue`, `day`*emelement.cRatio AS `dayValue`, `night`*emelement.cRatio AS `nightValue` 
+					FROM `emelement`, `electricity_measurement_month`
+					WHERE emelement.id = electricity_measurement_month.emelement_id
+					AND emelement.id = '.$eid.
+					'AND `date` BETWEEN "'.$startDate.'" AND "'.$endDate.'"
+					ORDER BY `date` DESC 
+					LIMIT 1';
+		$tmp = mysql_fetch_array($this->evaluate_Query($query), MYSQL_ASSOC);
+		$res = '';
+		
+		if (mysql_num_rows($tmp)) {
+			$res['totalValue']	= 	$tmp['totalValue'];
+			$res['dayValue']	=	$tmp['dayValue'];
+			$res['nightValue']	= 	$tmp['nightValue'];
+		}
+		else {
+			$query = "	SELECT initial_totalValue, initial_dayValue, initial_nightValue
+						FROM emelement
+						WHERE id = ".$eid;
+			$initialValues = mysql_fetch_array($this->evaluate_Query($query), MYSQL_ASSOC);
+			$res['totalValue']	= 	$initialValues['initial_totalValue'];
+			$res['dayValue']	=	$initialValues['initial_dayValue'];
+			$res['nightValue']	= 	$initialValues['initial_nightValue'];						
+		}
+		return $res;	
 	}
 
 
