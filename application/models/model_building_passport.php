@@ -20,7 +20,6 @@ class Model_building_passport extends Model
 		
 		$building_id = $this->CheckBidAccessLevel($_GET['bid']);
 		$data['bid'] = $building_id;
-		$eid = $this->CheckEidAccessLevel($_GET['eid']); 
 		$data['address'] = $this->GetAddress($building_id);
 			
 		//В зависимости от запрошенного раздела ЛК сформируем данные
@@ -41,22 +40,24 @@ class Model_building_passport extends Model
 					$measurementsFrequency = $measurementsFrequency['frequency'];
 					
 					$date = new DateTime(date("o-m-d"));
-					$date->modify('-30 day');
+					$date->modify('-365 day');
 					$startDate 	= 	isset($_POST['startDate']) 	? $this->SafeSQL($_POST['startDate'])	: $date->format('o-m-d'); //Дата начала отбора
 					$endDate 	= 	isset($_POST['endDate']) 	? $this->SafeSQL($_POST['endDate'])		: date("o-m-d");		  //Дата конца отбора
 					$data['measurements'] = $this->GetMeasurements($eid, $measurementsFrequency, $startDate, $endDate);					
-
+					$data['esnum'] = $this->GetEmelementSnum($eid);
 					$data['startDate'] = $startDate;
 					$data['endDate'] = $endDate;
 				break;
 				case "emelementChars":
+					$eid = $this->CheckEidAccessLevel($_GET['eid']);
 					$data['eChars'] = $this->GetEmelementData($eid)['eChars'];
-					$data['eTypesList'] = $this->GetEmelementData($eid)['eTypesList'];			
+					$data['eTypesList'] = $this->GetEmelementData($eid)['eTypesList'];
+					$data['esnum'] = $this->GetEmelementSnum($eid);		
+					$data['eid'] = $eid;	
 				break;
 			} //end of Switch			
-		} //end of If
-		$data['esnum'] = $this->GetEmelementSnum($eid);	
-		$data['eid'] = $eid;
+		} //end of If	
+
 		return $data;
 	}
 
@@ -72,18 +73,20 @@ class Model_building_passport extends Model
 						WHERE emelement.id = electricity_measurement_month.emelement_id
 						AND `date` BETWEEN "'.$startDate.'" AND "'.$endDate.'"
 						AND emelement.id = '.$eid.
-						'ORDER BY `date`';
+						' ORDER BY `date`';
+
 			$res = $this->evaluate_Query($query);
 			if ($res) {
 				while ($row = mysql_fetch_array($res, MYSQL_ASSOC)) 
-				{
+				{		
+					$rusMonths = array("Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь");		
 					$year = $row['year']; $month = $row['month']; $day = $row['day'];
 					$totalValue = $row['totalValue']; $dayValue = $row['dayValue']; $nightValue = $row['nightValue'];
-					$prevValues = $this->GetPrevMonthValues($year, $month, $eid);
-					$prevTotal = $prevValues['totalValues'];
-					$prevDay = $prevValues['dayValues'];
-					$prevNight = $prevValues['nightValues'];
-					
+					$prevValues = $this->GetPrevMonthValue($year, $month, $eid);
+					$prevTotal = $prevValues['totalValue'];
+					$prevDay = $prevValues['dayValue'];
+					$prevNight = $prevValues['nightValue'];
+					$row['month'] = $rusMonths[$row['month']-1];
 					$row['deltaTotal'] = $totalValue - $prevTotal;
 					$row['deltaDay'] = $dayValue - $prevDay;
 					$row['deltaNight'] = $nightValue - $prevNight;
@@ -118,14 +121,16 @@ class Model_building_passport extends Model
 					'AND `date` BETWEEN "'.$startDate.'" AND "'.$endDate.'"
 					ORDER BY `date` DESC 
 					LIMIT 1';
-		$tmp = mysql_fetch_array($this->evaluate_Query($query), MYSQL_ASSOC);
 		$res = '';
+		$tmp = $this->evaluate_Query($query);
 		
-		if (mysql_num_rows($tmp)) {
+		if ($tmp) {
+			$tmp = mysql_fetch_array($tmp, MYSQL_ASSOC);
 			$res['totalValue']	= 	$tmp['totalValue'];
 			$res['dayValue']	=	$tmp['dayValue'];
 			$res['nightValue']	= 	$tmp['nightValue'];
 		}
+
 		else {
 			$query = "	SELECT initial_totalValue, initial_dayValue, initial_nightValue
 						FROM emelement

@@ -11,7 +11,7 @@
 
 <div class="box right wide">
 	<div class="title">
-		<div style="float: left">Счётчик № <?php echo $data['esnum']; ?></div>
+		<div style="float: left">Счётчик № <?php echo $data['esnum']; echo ', период с '.$data['startDate'].' по '.$data['endDate']?></div>
 		<div style="float: right"><?php echo $data['address']; ?>
 
 		</div>
@@ -22,149 +22,51 @@
 		<?php GetAsBlock("emelement_menu"); ?>	
 		<!--/Меню офиса-->
 		<div style="padding: 5px">
-		<?php var_dump($data['measurements'])?>
+		<?php ?>
 		<table width="100%" class="simple">
-		  <thead>
-            <tr>
-              <td rowspan="2">Дата</td>
-              <td rowspan="2">Время</td>
-              <td colspan="3">Количество электроэнергии </td>
-              <td colspan="3">Разность показаний </td>
-            </tr>
-            <tr>
-              <td>ТА</td>
-              <td>Т1</td>
-              <td>Т2</td>
-              <td>ТА</td>
-              <td>Т1</td>
-              <td>Т2</td>
-            </tr>
-		</thead>
-            <tr>
-              <td>25.01.2013 </td>
-              <td>12.00</td>
-              <td>29771</td>
-              <td>13000</td>
-              <td>16774</td>
-              <td>5000</td>
-              <td>2000</td>
-              <td>3000</td>
-            </tr>
-            <tr>
-              <td>25.02.2013 </td>
-              <td>15.00</td>
-              <td>31056</td>
-              <td>14788</td>
-              <td>16999</td>
-              <td>4600</td>
-              <td>1300</td>
-              <td>3300</td>
-            </tr>
-            <tr>
-              <td>25.03.2013 </td>
-              <td>15.00</td>
-              <td>29771</td>
-              <td>13000</td>
-              <td>16774</td>
-              <td>5000</td>
-              <td>2000</td>
-              <td>3000</td>
-            </tr>
-            <tr>
-              <td>25.04.2013 </td>
-              <td>15.00</td>
-              <td>31056</td>
-              <td>14788</td>
-              <td>16999</td>
-              <td>4600</td>
-              <td>1300</td>
-              <td>3300</td>
-            </tr>
-            <tr>
-              <td>25.05.2013</td>
-              <td>15.00</td>
-              <td>29771</td>
-              <td>13000</td>
-              <td>16774</td>
-              <td>5000</td>
-              <td>2000</td>
-              <td>3000</td>
-            </tr>
-            <tr>
-              <td>25.06.2013</td>
-              <td>15.00</td>
-              <td>31056</td>
-              <td>14788</td>
-              <td>16999</td>
-              <td>4600</td>
-              <td>1300</td>
-              <td>3300</td>
-            </tr>
-            <tr>
-              <td>25.07.2013</td>
-              <td>15.00</td>
-              <td>29771</td>
-              <td>13000</td>
-              <td>16774</td>
-              <td>5000</td>
-              <td>2000</td>
-              <td>3000</td>
-            </tr>
-            <tr>
-              <td>25.08.2013</td>
-              <td>15.00</td>
-              <td>31056</td>
-              <td>14788</td>
-              <td>16999</td>
-              <td>4600</td>
-              <td>1300</td>
-              <td>3300</td>
-            </tr>
-            <tr>
-              <td>25.09.2013</td>
-              <td>15.00</td>
-              <td>29771</td>
-              <td>13000</td>
-              <td>16774</td>
-              <td>5000</td>
-              <td>2000</td>
-              <td>3000</td>
-            </tr>
-            <tr>
-              <td>25.10.2013</td>
-              <td>15.00</td>
-              <td>31056</td>
-              <td>14788</td>
-              <td>16999</td>
-              <td>4600</td>
-              <td>1300</td>
-              <td>3300</td>
-            </tr>
-            <tr>
-              <td>25.11.2013</td>
-              <td>15.00</td>
-              <td>29771</td>
-              <td>13000</td>
-              <td>16774</td>
-              <td>5000</td>
-              <td>2000</td>
-              <td>3000</td>
-            </tr>
-            <tr>
-              <td>25.12.2013</td>
-              <td>15.00</td>
-              <td>31056</td>
-              <td>14788</td>
-              <td>16999</td>
-              <td>4600</td>
-              <td>1300</td>
-              <td>3300</td>
-            </tr>
+			<thead>
+				<tr>
+				  <td rowspan="2">Год</td>
+				  <td rowspan="2">Месяц</td>
+				  <td colspan="3">Количество электроэнергии </td>
+				  <td colspan="3">Разность показаний </td>
+				</tr>
+				<tr>
+				  <td>ТА</td>
+				  <td>Т1</td>
+				  <td>Т2</td>
+				  <td>ТА</td>
+				  <td>Т1</td>
+				  <td>Т2</td>
+				</tr>
+			</thead>
+            <?php 
+			foreach ($data['measurements'] as $tableRow) {
+				echo '<tr>';
+					echo '<td>'.$tableRow['year'].'</td>';
+					echo '<td>'.$tableRow['month'].'</td>';
+					echo '<td>'.$tableRow['totalValue'].'</td>';
+					echo '<td>'.$tableRow['dayValue'].'</td>';
+					echo '<td>'.$tableRow['nightValue'].'</td>';
+					echo '<td>'.$tableRow['deltaTotal'].'</td>';
+					echo '<td>'.$tableRow['deltaDay'].'</td>';
+					echo '<td>'.$tableRow['deltaNight'].'</td>';
+				echo '</tr>';
+			}
+			?>
           </table>
 		  </div>
-		
+		  <div style="padding: 5px">
+ 			<div class="icon_button"><a href="#openModal" title="Внести измерения"><img src="/images/icons/date24.png" /></a></div>
+		  	<div class="icon_button"><a href="#openModal"><img src="/images/icons/add24.png" /></a></div>
 
-		           
+		  </div>	           
+	</div>
+	
+	<div id="openModal" class="modalDialog">
+		<div>
+			<a href="#close" title="Закрыть" class="close">X</a>
+		</div>
 	</div>
 
 		
