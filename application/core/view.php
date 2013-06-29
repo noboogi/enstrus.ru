@@ -2,14 +2,12 @@
 
 class View
 {
+		
 	
-	//public $template_view; // здесь можно указать общий вид по умолчанию.
+	//$content_file - виды отображающие контент страниц;
+	//$template_file - общий для всех страниц шаблон;
+	//$data - массив, содержащий элементы контента страницы. Обычно заполняется в модели.
 	
-	/*
-	$content_file - виды отображающие контент страниц;
-	$template_file - общий для всех страниц шаблон;
-	$data - массив, содержащий элементы контента страницы. Обычно заполняется в модели.
-	*/
 	function generate($content_view, $template_view, $data = null)
 	{		
 		/*
@@ -19,7 +17,7 @@ class View
 		*/
 		include 'application/views/'.$template_view;
 	}
-
+	
 	function generateBlock($content_view, $data = null)
 	{		
 		include 'application/modules/'.$content_view.'/'.$content_view.'_view.php';
