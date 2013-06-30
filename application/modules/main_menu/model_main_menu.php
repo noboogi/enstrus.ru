@@ -1,5 +1,4 @@
 <?php
-session_start();
 class Model_main_menu extends Model
 {
 

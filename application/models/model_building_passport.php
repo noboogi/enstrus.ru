@@ -50,8 +50,9 @@ class Model_building_passport extends Model
 				break;
 				case "emelementChars":
 					$eid = $this->CheckEidAccessLevel($_GET['eid']);
-					$data['eChars'] = $this->GetEmelementData($eid)['eChars'];
-					$data['eTypesList'] = $this->GetEmelementData($eid)['eTypesList'];
+					$tmp = $this->GetEmelementData($eid);
+					$data['eChars'] = $tmp['eChars'];
+					$data['eTypesList'] = $tmp['eTypesList'];
 					$data['esnum'] = $this->GetEmelementSnum($eid);		
 					$data['eid'] = $eid;	
 				break;

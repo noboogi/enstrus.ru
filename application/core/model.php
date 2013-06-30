@@ -1,5 +1,6 @@
 <?php
-include_once('/../dbconfig.php');	
+session_start();
+include_once($_SERVER['DOCUMENT_ROOT'].'/application/dbconfig.php');	
 	
 class Model
 {
@@ -20,6 +21,22 @@ class Model
 					mysql_close($link);	
 					return $res;
 			}
+	}
+	
+	public function getDBLink()
+	{
+		global $db_loc,$db_name,$db_user_adm,$db_pass_adm;
+		$link = mysql_connect($db_loc,$db_user_adm,$db_pass_adm);
+		mysql_query('SET NAMES utf8');
+		mysql_select_db($db_name, $link);
+		if (!$link) 
+			{
+				return 0;
+			}
+			else
+			{
+				return $link;
+			}	
 	}
 
 	// метод выборки данных
@@ -73,7 +90,6 @@ class Model
 	//Функция проверки, авторизован ли пользователь
 	public function check_session() 
 	{
-		session_start();
 		if (isset($_SESSION['user_login']) && isset($_SESSION['user_id']) && isset($_SESSION['user_status']) && isset($_SESSION['user_name']))
 		{
 			return TRUE;

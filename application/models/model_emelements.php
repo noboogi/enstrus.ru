@@ -1,4 +1,5 @@
 <?php
+include_once($_SERVER['DOCUMENT_ROOT'].'/application/dbconfig.php');
 
 class Model_Emelements extends Model
 {
@@ -111,9 +112,9 @@ class Model_Emelements extends Model
 			//Далее последует множество запросов к БД, использовать нашу evaluate_Query здесь слишком затратно по времени
 			//так как в этой функции подключение к БД создаётся и закрывается при каждом вызове. 
 			//Поэтому создадим отдельный линк до конца алгоритма и будем пользоваться им
-			$link = mysql_connect($this->db_loc,$this->db_user_adm,$this->db_pass_adm);
-			mysql_query('SET NAMES utf8');
-			mysql_select_db($this->db_name, $link);
+			$link = $this->getDBLink();//mysql_connect($this->db_loc,$this->db_user_adm,$this->db_pass_adm);
+			//mysql_query('SET NAMES utf8');
+			//mysql_select_db($this->db_name, $link);
 		
 			//Построчное чтение файла
 			//Чтобы выиграть во времени, будем формировать INSERT строку запроса из нескольких строк файла
@@ -160,8 +161,7 @@ class Model_Emelements extends Model
 			} //End While
 			$this->AddRecord($INSERT, $link); //После цикла While остался обрезок INSERT-строки, запишем и эти значения
 			
-			
-			
+					
 			fclose ($handle);
 			mysql_close($link);	
 			$stat['count']=$count;

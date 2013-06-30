@@ -8,5 +8,6 @@ require_once 'core/controller.php';
 require_once 'core/modules.php';
 require_once 'core/route.php';
 
+
 //Запускаем маршрутизатор
 Route::start(); 
