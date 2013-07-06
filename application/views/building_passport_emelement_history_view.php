@@ -18,9 +18,9 @@
 	</div>
 
 	<div class="content height450">
-		<!--Меню офиса-->
+		<div class='horizontal_button_menu_background'>
 		<?php GetAsBlock("emelement_menu"); ?>	
-		<!--/Меню офиса-->
+		</div>
 		Тут история счётчика (замены, обслуживание и .т.д)
 		
 

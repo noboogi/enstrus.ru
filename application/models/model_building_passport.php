@@ -35,10 +35,9 @@ class Model_building_passport extends Model
 				break;	
 				case "emelementMeasures":
 					$eid = $this->CheckEidAccessLevel($_GET['eid']);
-					$measurementsFrequency = $this->GetEmelementData($eid);
-					$measurementsFrequency = mysql_fetch_array($measurementsFrequency['eChars']);
-					$measurementsFrequency = $measurementsFrequency['frequency'];
-					
+					$emelementType = $this->GetEmelementData($eid);
+					$emelementType = mysql_fetch_array($emelementType['eChars']);
+					$emelementType = $emelementType['type'];
 					$date = new DateTime(date("o-m-d"));
 					$date->modify('-365 day');
 					$startDate 	= 	isset($_POST['startDate']) 	? $this->SafeSQL($_POST['startDate'])	: $date->format('o-m-d'); //Дата начала отбора
@@ -47,6 +46,8 @@ class Model_building_passport extends Model
 					$data['esnum'] = $this->GetEmelementSnum($eid);
 					$data['startDate'] = $startDate;
 					$data['endDate'] = $endDate;
+					$data['currentDate'] = date("o-m-d");
+					$data['eid'] = $eid;	
 				break;
 				case "emelementChars":
 					$eid = $this->CheckEidAccessLevel($_GET['eid']);

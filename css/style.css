@@ -27,6 +27,7 @@ a
 {
 	text-decoration:none;	
 	color: #3D6767;
+	outline:none; 
 }
 
 a:hover
@@ -184,7 +185,7 @@ p.article
 	background-image: -ms-linear-gradient(#04acec, #0186ba);
 	background-image: linear-gradient(#04acec, #0186ba);
 	min-height: 20px;
-	vertical-align: central;
+	vertical-align: middle;
 	color:white;
 	padding: 5px;	
 }
@@ -237,7 +238,20 @@ p.article
     border-color: #75CC7B;
 }
 
+.closeMessage {
+	text-decoration:none;
+	font-style: bold;
+	float:right;
+	color:#CC0000;
+}
 
+.closeMessage.error {
+	color:#CC0000;
+}
+
+.closeMessage.success {
+	color:#75CC7B;
+}
 /*********************Таблицы*************************/
 table.simple
 {
@@ -335,6 +349,7 @@ table.simple.last td, tr
 	    -webkit-box-shadow: 1px 1px 3px #000;
 	    box-shadow: 1px 1px 3px #000;
 }
+
 	 
 .close:hover 
 {

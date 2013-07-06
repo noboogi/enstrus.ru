@@ -1,4 +1,22 @@
+<?php 
+				/*Сообщим об успехе операции*/
+				if ($data['operationStatus']['label'] != "")
+				{
+					if ($data['uploadStatus']['code'] == 0) 
+					{
+						echo '<div id="message" class="message error">	
+						<a href="#" title="Закрыть" class="closeMessage error" onclick="document.getElementById(\'message\').style.display = \'none\'">X</a>';
+					}
+					else
+					{
+						echo '<div id="message" class="message success">
+						<a href="#" title="Закрыть" class="closeMessage success">X</a>';						
+					} 
 
+					echo "sd";
+					echo '</div>';
+				}
+			?>		
 <div class="box left narrow">
 	<div class="title">
 		Личный кабинет
@@ -20,8 +38,8 @@
 	<div class='horizontal_button_menu_background'>
 		<?php GetAsBlock("emelement_menu"); ?>	
 		<div style="padding: 5px; float: right;">
-			<a href="#openModalAdd" title="Добавить"><img src="../images/icons/addBlue.png" /></a>
-			<a href="#openModalFilter" title="Отбор по дате"><img src="../images/icons/calendarBlue.png" /></a>		
+			<a href="#openModalAdd" title="Добавить"><img src="../images/icons/24/add.png" border=0/></a>
+			<a href="#openModalFilter" title="Отбор по дате"><img src="../images/icons/24/calendar.png"  border=0/></a>		
 		</div>				
 	</div>
 
@@ -59,62 +77,71 @@
 			}
 			?>
           </table>
-		  </div>	  	           
+	  </div>  	           
 	</div>
 	
 	<div id="openModalAdd" class="modalDialog">
 		<div style="width: 300px; margin-left:auto; margin-right:auto;">
-		<a href="#close" title="Закрыть" class="close">X</a>
-		<form id="addValue" name="addValue" method="post" action="">
+		<a href="#" title="Закрыть" class="close">X</a>
+		<form id="addValue" name="addValue" method="post" 
+		action="/building_passport/emeasures?bid=<?php echo $data['bid'].'&eid='.$data['eid'];?>">
 		<table border="0">
 		  <tr>
+		  	<td colspan="4"><br />Введите текущие показания счётчика: </td>
+		  </tr>
+		  <tr>
 			<td width="70"><div align="right">Дата</div></td>
-			<td width="120"><input name="date" type="text" value="<?php echo "50"?>" class="tcal width100"/></td>
+			<td width="170"><input name="newDate" type="text" value="<?php echo $data['currentDate']?>" class="tcal width100"/></td>
 			<td width="70"><div align="right">Значение</div></td>
-			<td width="120"><input name="value" type="text" value="<?php echo "100"?>" class="width100"></td>
+			<td width="150"><input name="newValue" type="text" value="<?php echo "0"?>" class="width100"></td>
 		  </tr>
 		  <tr>
 			<td width="70"><div align="right">День</div></td>
-			<td width="120"><input name="value" type="text" value="<?php echo "100"?>" class="width100"></td>
+			<td width="150"><input name="newDayValue" type="text" value="<?php echo "0"?>" class="width100"></td>
 			<td width="70"><div align="right">Ночь</div></td>
-			<td width="120"><input name="value" type="text" value="<?php echo "100"?>" class="width100"></td>
+			<td width="150"><input name="newNightValue" type="text" value="<?php echo "0"?>" class="width100"></td>
 		  </tr>
 		  <tr>
 			<td colspan="4"><div align="center" style="margin-top: 15px;">
-				<a href="#" class="button big primary">Сохранить</a></div></td>
-			</tr>
+				<input type="submit" class="button big primary" value="Сохранить"></div></td>
+		  </tr>
 		</table>
 		</form>
 		</div>
 	</div>
 	
-		<div id="openModalFilter" class="modalDialog">
+		<div name="openModalFilter" id="openModalFilter" class="modalDialog">
 		<div style="width: 150px; margin-left:auto; margin-right:auto;">
-			<a href="#close" title="Закрыть" class="close">X</a>
-			<form id="dateFilter" name="dateFilter" method="post" action="">
+			<a href="#" title="Закрыть" class="close">X</a>
+			<form id="dateFilter" name="dateFilter" method="post" 
+			action="/building_passport/emeasures?bid=<?php echo $data['bid'].'&eid='.$data['eid'];?>">
 			<table border="0">
 			  <tr>
 				<td colspan="4"><div align="left">Период отбора:</div></td>
 			  </tr>
 			  <tr>
 				<td colspan="2"><div align="right"> с:</div></td>
-				<td colspan="2"><input name="startDate" type="text" value="<?php echo "01-10-2013"?>" class="tcal width100"/></td>
-				</tr>
+				<td colspan="2"><input name="startDate" type="text" value="<?php echo $data['startDate']?>" class="tcal width100"/></td>
+			  </tr>
 			  <tr>
 				<td colspan="2"><div align="right"> по:</div></td>
-				<td colspan="2"><input name="stopDate" type="text" value="<?php echo "31-10-2013"?>" class="tcal width100"/></td>
+				<td colspan="2"><input name="endDate" type="text" value="<?php echo $data['endDate']?>" class="tcal width100"/></td>
 			  </tr>
 			  <tr>
 			  	<td colspan="4">
-					<div align="center" style="margin-top: 15px;"><a href="#" class="button big primary">Выбрать</a></div>
+					<div align="center" style="margin-top: 15px;">
+						<input type="submit" class="button big primary" value="Отбор">	
+					</div>
 				</td>
 			  </tr>
 			</table>
 			</form>
+			
 		</div>
 	</div>
 
 		
+
 
 
 

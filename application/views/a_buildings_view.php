@@ -41,7 +41,7 @@
 <div class="box right wide">
 	<div class="title">
 		Список
-		<div class="icon_button"><img src="images/icons/plus24.png" /></div>	
+		<div class="icon_button bordered"><img src="images/icons/24/add.png" width="20" height="20" /></div>	
 	</div>
 
 	<div class="content">
@@ -79,11 +79,12 @@
 					echo '<td>'.$row['buildingDate'].'</td>';
 					echo '<td>'.$row['totalArea'].'</td>';
 					echo '	<td>
-								<div class="icon_button"><img src="images/icons/delete16.png" /></div>
-								<div class="icon_button"><img src="images/icons/edit16.png" /></div>
-								<div class="icon_button"><img src="images/icons/map16.png" /></div>
-								<div class="icon_button"><img src="images/icons/users16.png" /></div>
-								<div class="icon_button"><a href="/building_passport?bid='.$row['buildingId'].'"><img src="images/icons/home16.png" /></a></div>								
+								<div class="icon_button"><img src="images/icons/delete16.png"  border=0 /></div>
+								<div class="icon_button"><img src="images/icons/edit16.png"  border=0 /></div>
+								<div class="icon_button"><img src="images/icons/map16.png"  border=0 /></div>
+								<div class="icon_button"><img src="images/icons/users16.png"  border=0 /></div>
+								<div class="icon_button"><a href="/building_passport?bid='.$row['buildingId'].'"><img src="images/icons/home16.png"
+								 border=0/></a></div>								
 							</td>';
 				echo '</tr>';
 			}

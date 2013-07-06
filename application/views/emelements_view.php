@@ -39,15 +39,15 @@
 <div class="box right wide">
 	<div class="title">
 		Список
-		<div class="icon_button" 
+		<div class="icon_button bordered" 
 		onclick="document.emeasurementsElements.action='/emeasurements/graph'; document.emeasurementsElements.submit()" style="cursor:pointer;">
-			<img src="../images/icons/graph32-2.png" width="26" height="25" title="Статистика по выбраным: график" />		
+			<img src="../images/icons/24/bar_chart.png" title="Статистика по выбраным: график" width="20" height="20" />		
 		</div>
-		<div class="icon_button" 
+		<div class="icon_button bordered" 
 		onclick="document.emeasurementsElements.action='/emeasurements/table'; document.emeasurementsElements.submit()" style="cursor:pointer;">
-			<img src="../images/icons/sum.png" width="26" height="25" title="Статистика по выбраным: таблица" />		
+			<img src="../images/icons/24/sum.png" title="Статистика по выбраным: таблица" width="20" height="20" />		
 		</div>
-		<div class="icon_button"><img src="../images/icons/plus24.png" title="Создать новый"/></div>	
+		<div class="icon_button bordered"><img src="../images/icons/24/add.png" title="Создать новый" width="20" height="20" /></div>	
 	</div>
 	
 
@@ -110,17 +110,17 @@
 						echo '<td>'.$row['porchNo'].'</td>';
 						echo '<td>'.$row['flatNo'].'</td>';					
 						echo '	<td>
-									<div class="icon_button"><img title="Удалить" src="../images/icons/delete16.png" id="'.$row['id'].'"/></div>
+									<div class="icon_button"><img title="Удалить" src="../images/icons/delete16.png"  border=0 id="'.$row['id'].'"/></div>
 									<div class="icon_button">
 										<a href="#openModal" title="Загрузка файлов с измерениями" 
 										onClick="document.getElementById(\'emelementId\').value = '.$row['id'].';
 										document.getElementById(\'snLabel\').innerHTML = '.$row['sn'].'">
-											<img style="border: 0" src="../images/icons/upload16.png"/>
+											<img  border=0 style="border: 0" src="../images/icons/upload16.png"/>
 										</a>
 									</div>	
 									<div class="icon_button">
 										<a href="/emeasurements/graph?sn='.$row['sn'].'">
-										<img title="Вывести график" src="../images/icons/graph16.png" />
+										<img  border=0 title="Вывести график" src="../images/icons/graph16.png" />
 										</a>
 									</div>							
 								</td>';

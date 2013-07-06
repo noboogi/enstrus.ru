@@ -45,11 +45,21 @@ input:focus
 
 .icon_button
 {
+	border: 0;
 	float: right;
 	cursor: pointer;
 	text-align:center;
 	vertical-align:central;
-	margin: 0 2px 0 2px;
+	margin: 0 2px 0px 2px;
 }
+
+.bordered
+{
+	border: 1px double #FFFFFF;
+	position:relative;
+	top: -2px;
+}
+
+
 
 
