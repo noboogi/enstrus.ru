@@ -41,7 +41,7 @@
                       	<ul><li><a href="registration.html"> Регистрация</a></li></ul>
                      </td>
                     <td width="50%" align="right">
-					<div class="button blue" onclick="document.auth_form.submit()" style="cursor:pointer">Вход</div>
+					<div class="button active" onclick="document.auth_form.submit()" style="cursor:pointer">Вход</div>
 				</td>
                   </tr>
                 </table>

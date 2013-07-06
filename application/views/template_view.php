@@ -13,6 +13,8 @@
     <link href="../css/news.css" rel="stylesheet" type="text/css" />
     <!--Стили для форм-->
     <link href="../css/forms.css" rel="stylesheet" type="text/css" />
+    <!--Стили кнопок с гита-->
+    <link href="../css/githubButtonsStyle.css" rel="stylesheet" type="text/css" />
     <!--Стили для контактов-->    
     <link href="../css/contacts.css" rel="stylesheet" type="text/css" />    
     <!--Скрипты и стиль для сортируемой таблицы-->
@@ -24,8 +26,6 @@
 	<!--Стиль и скрипт элемента ввода даты (календарь)-->
 	<link href="../css/calendar.css" rel="stylesheet" type="text/css" />
 	<script type="text/javascript" src="../js/calendar.js"></script>
-	<!--Стиль горизонтального подменю-->
-	<link href="../css/horizontal_submenu.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>

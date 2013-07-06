@@ -43,41 +43,6 @@ input:focus
 }
 
 
-/******Кнопки*******/
-
-.button, .button:visited {
-    background: #222 url(overlay.png) repeat-x;
-    display: inline-block;
-	min-width: 100px;
-    padding: 5px 5px 6px;
-	margin: 3px 3px 3px 3px;
-    color: #fff;
-    text-decoration: none;
-    position: relative;
-    cursor: pointer;
-	text-align:center;
-	
-	/*Скругление углов*/
-	-webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-    border: 1px solid #4A5E84;
-	/*Тени*/
-	-webkit-box-shadow: 1px 1px 0px #4A5E84;
-    -moz-box-shadow: 1px 1px 0px #4A5E84;
-    box-shadow:  1px 1px 0px #4A5E84;			
-}
-
-/*Цвета кнопок*/
-.green.button, .green.button:visited { background-color: #91bd09; }
-.green.button:hover { background-color: #749a02; }
-.orange.button, .orange.button:visited  { background-color: #ff5c00; }
-.orange.button:hover { background-color: #d45500; }
-.blue.button, .blue.button:visited { background-color: #2981e4; }
-.blue.button:hover { background-color: #2575cf; }
-.yellow.button, .yellow.button:visited  { background-color: #ffb515; }
-.yellow.button:hover { background-color: #fc9200; }
-
 .icon_button
 {
 	float: right;

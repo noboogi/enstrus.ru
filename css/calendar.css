@@ -19,7 +19,7 @@
 #tcal {
 	position: absolute;
 	visibility: hidden;
-	z-index: 100;
+	z-index: 999999;
 	width: 170px;
 	background-color: white;
 	margin-top: 2px;

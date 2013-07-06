@@ -17,7 +17,9 @@
 .стиль6 {font-size: 14px}
 -->
 </style>
-<div class="box">
+
+<div class="box" style="Margin-left:auto;
+    Margin-right:auto; width:80%;">
 	<div class="title">О компании</div>
 	<div class="content">
 	  <div class="left wide">
@@ -89,6 +91,7 @@
 
 	</div>
 </div>
+
 
 
 

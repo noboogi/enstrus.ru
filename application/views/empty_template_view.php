@@ -11,8 +11,10 @@
 	<!--    <link href="files/tree.css" rel="stylesheet" type="text/css" />-->
     <!--Стили новостной ленты-->
     <link href="css/news.css" rel="stylesheet" type="text/css" />
-    <!--Стили для контактов-->
+    <!--Стили для форм-->
     <link href="css/forms.css" rel="stylesheet" type="text/css" />
+	<!--Стили кнопок с гита-->
+    <link href="../css/githubButtonsStyle.css" rel="stylesheet" type="text/css" />	
     <!--Стили для контактов-->    
     <link href="css/contacts.css" rel="stylesheet" type="text/css" />    
     <!--Скрипты и стиль для сортируемой таблицы-->

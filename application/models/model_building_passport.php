@@ -154,7 +154,7 @@ class Model_building_passport extends Model
 	private function GetEmelementsList($building_id) {
 		$user_status = $_SESSION['user_status'];
 		if ($user_status < 4) {	
-				header('Location:/building_passport/emelement');					
+				header('Location:/building_passport/emeasures');					
 		} 
 		else
 		{	
@@ -263,7 +263,6 @@ class Model_building_passport extends Model
 			else
 			{
 				$query = 'SELECT id FROM emelement WHERE emelement.stop_date IS NULL AND emelement.flat_id = '.$user_flat_id;
-				echo $query;
 				$emelement_id = mysql_result($this->evaluate_Query($query), 0, 0);
 			}
 		}
@@ -326,12 +325,6 @@ class Model_building_passport extends Model
 		return $result;				
 	}
 	
-	
-	//Данные измерений счётчика
-	public function get_emelement_measures()
-	{
-		return 0;
-	}
 	
 	//История счётчика (замена, обслуживание и т.д.)
 	public function get_emelement_history()

@@ -44,11 +44,6 @@ class Controller_building_passport extends Controller
 		$this->view->generate('building_passport_emelements_view.php', 'template_view.php', $data);	
 	}
 	
-	function action_emelement()
-	{
-		$data = $this->model->get_data("emelement");
-		$this->view->generate('building_passport_emelement_view.php', 'template_view.php', $data);	
-	}
 	
 	//Технические характеристики счётчика
 	function action_echars()
