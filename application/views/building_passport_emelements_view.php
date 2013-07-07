@@ -25,6 +25,7 @@
 	</div>
 
 	<div class="content height450">
+	<div style="margin: 10px;">
 	<form id="emeasurementsElements" name="emeasurementsElements" method="post" action="/emeasurements">
 		<?php 
 			//Если работает администратор - надо явно указывать id здания во всех ссылках
@@ -130,6 +131,8 @@
 			};						
 		?>
 		</form>
+		</div>
+		</div>
 
 		
 

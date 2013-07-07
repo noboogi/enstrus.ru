@@ -2,7 +2,7 @@
 				/*Сообщим об успехе операции*/
 				if ($data['operationStatus']['label'] != "")
 				{
-					if ($data['uploadStatus']['code'] == 0) 
+					if ($data['operationStatus']['code'] == 0) 
 					{
 						echo '<div id="message" class="message error">	
 						<a href="#" title="Закрыть" class="closeMessage error" onclick="document.getElementById(\'message\').style.display = \'none\'">X</a>';
@@ -10,10 +10,9 @@
 					else
 					{
 						echo '<div id="message" class="message success">
-						<a href="#" title="Закрыть" class="closeMessage success">X</a>';						
+						<a href="#" title="Закрыть" class="closeMessage success" onclick="document.getElementById(\'message\').style.display = \'none\'">X</a>';					
 					} 
-
-					echo "sd";
+					echo $data['operationStatus']['label'];
 					echo '</div>';
 				}
 			?>		
@@ -93,7 +92,7 @@
 			<td width="70"><div align="right">Дата</div></td>
 			<td width="170"><input name="newDate" type="text" value="<?php echo $data['currentDate']?>" class="tcal width100"/></td>
 			<td width="70"><div align="right">Значение</div></td>
-			<td width="150"><input name="newValue" type="text" value="<?php echo "0"?>" class="width100"></td>
+			<td width="150"><input name="newTotalValue" type="text" value="<?php echo "0"?>" class="width100"></td>
 		  </tr>
 		  <tr>
 			<td width="70"><div align="right">День</div></td>

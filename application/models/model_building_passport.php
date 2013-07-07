@@ -33,7 +33,15 @@ class Model_building_passport extends Model
 				case "emelements" 	: 
 					$data['emelementsList'] = $this->GetEmelementsList($building_id);
 				break;	
-				case "emelementMeasures":
+				case "emelementMeasures":				
+					$eid = $this->CheckEidAccessLevel($_GET['eid']);
+					if (isset($_POST['newDate'])) {
+						$newDate		=	$this->SafeSQL($_POST['newDate'],10);
+						$newTotalValue	=	$this->SafeSQL($_POST['newTotalValue'],15);
+						$newNightValue	=	$this->SafeSQL($_POST['newNightValue'],15);
+						$newDayValue	=	$this->SafeSQL($_POST['newDayValue'],15);
+						$data['operationStatus'] =	$this->AddMeasurementValue($eid, $newDate,$newTotalValue,$newNightValue,$newDayValue);
+					};					
 					$eid = $this->CheckEidAccessLevel($_GET['eid']);
 					$emelementType = $this->GetEmelementData($eid);
 					$emelementType = mysql_fetch_array($emelementType['eChars']);
@@ -42,7 +50,7 @@ class Model_building_passport extends Model
 					$date->modify('-365 day');
 					$startDate 	= 	isset($_POST['startDate']) 	? $this->SafeSQL($_POST['startDate'])	: $date->format('o-m-d'); //Дата начала отбора
 					$endDate 	= 	isset($_POST['endDate']) 	? $this->SafeSQL($_POST['endDate'])		: date("o-m-d");		  //Дата конца отбора
-					$data['measurements'] = $this->GetMeasurements($eid, $measurementsFrequency, $startDate, $endDate);					
+					$data['measurements'] = $this->GetMeasurements($eid, $emelementType, $startDate, $endDate);					
 					$data['esnum'] = $this->GetEmelementSnum($eid);
 					$data['startDate'] = $startDate;
 					$data['endDate'] = $endDate;
@@ -63,11 +71,64 @@ class Model_building_passport extends Model
 		return $data;
 	}
 
-	private function GetMeasurements($eid, $measurementsFrequency, $startDate, $endDate) {
+	private function AddMeasurementValue($eid, $newDate,$newTotalValue,$newNightValue,$newDayValue) {
+		$label = ""; $code = 1;
+		//Ищем предыдущее измерение
+		$query = "	SELECT DATE_FORMAT(`date`,'%d.%m.%Y') AS orderFormatDate, `date`, `total`, `day`, `night` 
+					FROM `electricity_measurement_month` 
+					WHERE `emelement_id`= $eid 
+					ORDER BY orderFormatDate ASC LIMIT 1";
+		$last = $this->evaluate_Query($query);
+		$last = mysql_fetch_array($last);
+		$lastDate = $last['date'];
+		$lastTotalValue = $last['total'];
+		$lastDayValue = $last['day'];
+		$lastNightValue = $last['night'];
+		//Если предыдущее измерение не найдено - берём начальные значения счётчика
+		if ($lastDate == '') {
+			$last = $this->evaluate_Query("	SELECT start_date, initial_totalValue, initial_dayValue, initial_nightValue
+											FROM emelement
+											WHERE emelement.id = $eid");
+			$last = mysql_fetch_array($last);	
+			$lastDate = $last['start_date'];
+			$lastTotalValue = $last['initial_totalValue'];
+			$lastDayValue = $last['initial_dayValue'];
+			$lastNightValue = $last['initial_nightValue'];													
+		};
+		
+		//Переделать проверку даты, сечас можно ввести 9999-99-99, или 31 день в месяце с 29 днями
+		if (!is_numeric($newTotalValue) or !is_numeric($newNightValue) or !is_numeric($newDayValue) or !preg_match("/^([0-9]{4})-([0-9]{2})-([0-9]{2})$/", $newDate)) {
+				$code=0;
+				$label="Некорректный ввод данных. Значение не было добавлено.";
+		}
+		elseif ((($newTotalValue-$lastTotalValue)<0) or (($newDayValue-$lastDayValue)<0) or (($newNightValue - $lastNightValue)<0)) {
+				$code=0;
+				$label="Введённые значения меньше показаний за предыдущий месяц".$lastNightValue." ".$newNightValue;						
+		}
+		elseif (($newTotalValue != $newNightValue + $newDayValue) and ($newDayValue!=0) and ($newNightValue!=0)) {
+				$code=0;
+				$label="Сумма показаний за день и ночь не равна общему значению";		
+		}
+		elseif (((strtotime($newDate." 00:00:00")-strtotime($lastDate." 00:00:00"))<=0)and ($_SESSION['user_status']<8)) {
+			$code=0;
+			$label="Измерения на введённую или более позднюю дату  уже записаны.";
+		}
+		else {
+			$query = 'INSERT INTO `teiriko_synergy`.`electricity_measurement_month` 
+			(`id`, `emelement_id`, `date`, `time`, `total`, `day`, `night`) 
+			VALUES (NULL, "'.$eid.'", "'.$newDate.'", "12:00:00", "'.$newTotalValue.'", "'.$newDayValue.'", "'.$newNightValue.'")';
+			$this->evaluate_Query($query);
+			$code=1;
+			$label="Значение успешно добавлено.";			
+		};
+		return array('label' => $label, 'code' => $code);		
+	}
+
+	private function GetMeasurements($eid, $emelementType, $startDate, $endDate) {
 		$measurementsTable = array();
 		
-		//Выбор таблицы в зависимости от частоты измерения счётчика
-		if ($measurementsFrequency == 0) {
+		//Выбор таблицы в зависимости от типа счётика (1 - почасовые, 2,3,4,5 - прочие)
+		if ($emelementType > 1) {
 			//Измерения по месяцам
 			$query = '	SELECT DATE_FORMAT(`date`,"%Y") AS `year`, DATE_FORMAT(`date`,"%m") AS `month`, DATE_FORMAT(`date`,"%d") AS `day`,
 						`total`*emelement.cRatio AS `totalValue`, `day`*emelement.cRatio AS `dayValue`, `night`*emelement.cRatio AS `nightValue` 
@@ -320,8 +381,7 @@ class Model_building_passport extends Model
 	
 	private	function GetEmelementData($eid)
 	{
-		$query = 'SELECT * FROM emelement WHERE emelement.id='.$eid;
-		$result['eChars'] = $this->evaluate_Query($query);
+		$result['eChars'] = $this->evaluate_Query('SELECT * FROM emelement WHERE emelement.id='.$eid);
 		$result['eTypesList'] = $this->evaluate_Query('SELECT * FROM c_emelementtype');	
 		return $result;				
 	}
