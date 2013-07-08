@@ -1,5 +1,5 @@
 
-<div class="box" style="Margin-left:auto; Margin-right:auto; width:80%;">
+<div class="box" style="Margin-left:auto; Margin-right:auto; width:99%;">
 	<div class="title">Главная страница</div>
 	<div class="content">
 		<div>
