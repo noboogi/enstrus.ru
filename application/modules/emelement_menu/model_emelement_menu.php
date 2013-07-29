@@ -16,6 +16,9 @@ class Model_emelement_menu extends Model
 				array ('Name' => 'Характеристики', 'Url' => '/building_passport/echars'.$eid.$bid),		
 				array ('Name' => 'История', 'Url' => '/building_passport/ehistory'.$eid.$bid)
 			);
+			if ($this->emelementType($_GET['eid']) == 1) {
+				$data[] = array('Name' => 'Отправка отчёта', 'Url' => '/building_passport/ereportmail'.$eid.$bid);
+			}
 			return $data;		
 		}		
 		/*Пользователь не авторизован*/
@@ -24,6 +27,14 @@ class Model_emelement_menu extends Model
 			header('Location:/login');
 		}
 
+	}
+	
+	private function emelementType($eid) {
+		$query='SELECT type FROM emelement WHERE emelement.id='.$this->SafeSQL($eid,9);
+		$query = $this->evaluate_Query($query);		
+		$query = mysql_fetch_array($query);
+
+		return $query['type'];
 	}
 
 }

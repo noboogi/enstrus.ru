@@ -72,7 +72,13 @@ class Controller_building_passport extends Controller
 		$data = $this->model->get_data("emelementGraph");
 		$this->view->generate('building_passport_emelement_graph_view.php', 'template_view.php', $data);	
 	}
-
+	
+	//—формировать отчЄт по счЄтчику дл€ отправки по e-mail
+	function action_ereportmail()
+	{
+		$data = $this->model->get_data("emelementMailReport");
+		$this->view->generate('building_passport_emelement_mailreport_view.php', 'template_view.php', $data);	
+	}	
 
 
 

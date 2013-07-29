@@ -14,7 +14,7 @@
 		<div style="float: left">Приборы учёта</div>
 		<div class="icon_button bordered" 
 			onclick="document.emeasurementsElements.action='/emeasurements/graph'; document.emeasurementsElements.submit()" style="cursor:pointer;">
-			<img src="../images/icons/24/bar_chart.png" width="20" height="20" title="Статистика по выбраным: таблица" />		
+			<img src="../images/icons/24/bar_chart.png" width="20" height="20" title="Статистика по выбраным: график" />		
 		</div>
 		<div class="icon_button bordered" 
 			onclick="document.emeasurementsElements.action='/emeasurements/table'; document.emeasurementsElements.submit()" style="cursor:pointer; margin-left: 15px;">

@@ -1,4 +1,6 @@
 <?php
+require_once('/application/libs/electricity.php');
+require_once('/application/libs/db.php');
 
 class Model_building_passport extends Model
 {
@@ -8,7 +10,7 @@ class Model_building_passport extends Model
 		$query = '	SELECT street.name, building.no 
 					FROM building, street 
 					WHERE building.id='.$building_id.' AND building.street_id=street.id';
-		$tmp = $this->evaluate_Query($query);
+		$tmp = evaluate_Query($query);
 		$row = mysql_fetch_array($tmp);
 		$address = 'ул. '.$row['name'].', д. '.$row['no'];
 		return $address;								
@@ -63,13 +65,33 @@ class Model_building_passport extends Model
 					$data['eChars'] = $tmp['eChars'];
 					$data['eTypesList'] = $tmp['eTypesList'];
 					$data['esnum'] = $this->GetEmelementSnum($eid);		
-					$data['eid'] = $eid;	
+					$data['eid'] = $this->GetEmelementSnum($eid);	
+				break;
+				case "emelementMailReport":
+					$eid = $this->CheckEidAccessLevel($_GET['eid']);				
+					$data['eid'] = $eid;
+					$data['esnum'] = $this->GetEmelementSnum($eid);
+					
+					$date = new DateTime(date("o-m-d"));
+					$date->modify('-1 month');
+					$startDate 	= 	isset($_POST['startDate']) 	? $this->SafeSQL($_POST['startDate'])	: $date->format('o-m-d'); 
+					$endDate 	= 	isset($_POST['endDate']) 	? $this->SafeSQL($_POST['endDate'])		: date("o-m-d");
+					$data['startDate'] = $startDate;
+					$data['endDate'] = $endDate;					
+					$action = $_GET['action'];
+					if ($action=="preview") {
+						$data['previewDocument'] = GetMailReport($eid, $startDate, $endDate, 0);
+					}	
 				break;
 			} //end of Switch			
 		} //end of If	
 
 		return $data;
 	}
+	
+//	private function GetMailReport($eid, $startDate, $endDate, $action) {
+//		return "Текст сформированного документа";
+//	}
 
 	private function AddMeasurementValue($eid, $newDate,$newTotalValue,$newNightValue,$newDayValue) {
 		$label = ""; $code = 1;
@@ -78,7 +100,7 @@ class Model_building_passport extends Model
 					FROM `electricity_measurement_month` 
 					WHERE `emelement_id`= $eid 
 					ORDER BY orderFormatDate ASC LIMIT 1";
-		$last = $this->evaluate_Query($query);
+		$last = evaluate_Query($query);
 		$last = mysql_fetch_array($last);
 		$lastDate = $last['date'];
 		$lastTotalValue = $last['total'];
@@ -86,7 +108,7 @@ class Model_building_passport extends Model
 		$lastNightValue = $last['night'];
 		//Если предыдущее измерение не найдено - берём начальные значения счётчика
 		if ($lastDate == '') {
-			$last = $this->evaluate_Query("	SELECT start_date, initial_totalValue, initial_dayValue, initial_nightValue
+			$last = evaluate_Query("	SELECT start_date, initial_totalValue, initial_dayValue, initial_nightValue
 											FROM emelement
 											WHERE emelement.id = $eid");
 			$last = mysql_fetch_array($last);	
@@ -117,7 +139,7 @@ class Model_building_passport extends Model
 			$query = 'INSERT INTO `teiriko_synergy`.`electricity_measurement_month` 
 			(`id`, `emelement_id`, `date`, `time`, `total`, `day`, `night`) 
 			VALUES (NULL, "'.$eid.'", "'.$newDate.'", "12:00:00", "'.$newTotalValue.'", "'.$newDayValue.'", "'.$newNightValue.'")';
-			$this->evaluate_Query($query);
+			evaluate_Query($query);
 			$code=1;
 			$label="Значение успешно добавлено.";			
 		};
@@ -138,7 +160,7 @@ class Model_building_passport extends Model
 						AND emelement.id = '.$eid.
 						' ORDER BY `date`';
 
-			$res = $this->evaluate_Query($query);
+			$res = evaluate_Query($query);
 			if ($res) {
 				while ($row = mysql_fetch_array($res, MYSQL_ASSOC)) 
 				{		
@@ -185,7 +207,7 @@ class Model_building_passport extends Model
 					ORDER BY `date` DESC 
 					LIMIT 1';
 		$res = '';
-		$tmp = $this->evaluate_Query($query);
+		$tmp = evaluate_Query($query);
 		
 		if ($tmp) {
 			$tmp = mysql_fetch_array($tmp, MYSQL_ASSOC);
@@ -198,7 +220,7 @@ class Model_building_passport extends Model
 			$query = "	SELECT initial_totalValue, initial_dayValue, initial_nightValue
 						FROM emelement
 						WHERE id = ".$eid;
-			$initialValues = mysql_fetch_array($this->evaluate_Query($query), MYSQL_ASSOC);
+			$initialValues = mysql_fetch_array(evaluate_Query($query), MYSQL_ASSOC);
 			$res['totalValue']	= 	$initialValues['initial_totalValue'];
 			$res['dayValue']	=	$initialValues['initial_dayValue'];
 			$res['nightValue']	= 	$initialValues['initial_nightValue'];						
@@ -208,7 +230,7 @@ class Model_building_passport extends Model
 
 
 	private function GetEmelementSnum($eid) {
-		$res = $this->evaluate_Query("SELECT sn FROM emelement WHERE id=$eid");
+		$res = evaluate_Query("SELECT sn FROM emelement WHERE id=$eid");
 		return mysql_result($res,0,0);
 	}
 	
@@ -227,7 +249,7 @@ class Model_building_passport extends Model
 						WHERE emelement.type = c_emelementtype.id AND emelement.building_id='.$building_id.' 
 						AND emelement.porch_id IS NULL
 						AND emelement.stop_date IS NULL';
-			$buildingEmelements = $this->evaluate_Query($query);
+			$buildingEmelements = evaluate_Query($query);
 
 			//Отбор счётчиков на уровне подъезда
 			$query = '	SELECT emelement.id AS eid, emelement.sn AS sn, emelement.type AS type, c_emelementtype.label AS label, emelement.cRatio AS cRatio,
@@ -236,7 +258,7 @@ class Model_building_passport extends Model
 						WHERE emelement.type = c_emelementtype.id AND emelement.building_id='.$building_id.' 
 						AND emelement.porch_id IS NOT NULL AND emelement.floor_id IS NULL AND emelement.flat_id IS NULL
 						AND emelement.stop_date IS NULL';
-			$porchEmelements = $this->evaluate_Query($query);
+			$porchEmelements = evaluate_Query($query);
 						
 			//Отбор счетчиков, привязанных на уровне квартир
 			$query = '	SELECT emelement.id AS eid, emelement.sn AS sn, emelement.type AS type, c_emelementtype.label AS label, emelement.cRatio AS cRatio,
@@ -246,7 +268,7 @@ class Model_building_passport extends Model
 						AND emelement.building_id='.$building_id.' 
 						AND emelement.porch_id IS NOT NULL AND emelement.floor_id IS NOT NULL
 						AND emelement.stop_date IS NULL';
-			$flatEmelements = $this->evaluate_Query($query);
+			$flatEmelements = evaluate_Query($query);
 		}						
 											
 			$list['buildingEmelements'] = $buildingEmelements;
@@ -286,7 +308,7 @@ class Model_building_passport extends Model
 			{
 				//Если запрос от управляющей компании, то проверим её права доступа к данном зданию
 				$query = 'SELECT mgcompany_id FROM building WHERE building.id='.$bid;
-				$building_mgcompany_id = mysql_result($this->evaluate_Query($query), 0, 0);
+				$building_mgcompany_id = mysql_result(evaluate_Query($query), 0, 0);
 				if ($building_mgcompany_id == $_SESSION['user_mgcompany']) 
 				{
 					$building_id = $bid;
@@ -325,7 +347,7 @@ class Model_building_passport extends Model
 			else
 			{
 				$query = 'SELECT id FROM emelement WHERE emelement.stop_date IS NULL AND emelement.flat_id = '.$user_flat_id;
-				$emelement_id = mysql_result($this->evaluate_Query($query), 0, 0);
+				$emelement_id = mysql_result(evaluate_Query($query), 0, 0);
 			}
 		}
 		else
@@ -340,7 +362,7 @@ class Model_building_passport extends Model
 			{
 				//Если запрос от управляющей компании, то проверим её права доступа к данном зданию
 				$query = 'SELECT mgcompany_id FROM building, emelement WHERE building.id = emelement.building_id AND emelement.id='.$eid;
-				$emelement_mgcompany_id = mysql_result($this->evaluate_Query($query), 0, 0);
+				$emelement_mgcompany_id = mysql_result(evaluate_Query($query), 0, 0);
 				if ($emelement_mgcompany_id == $_SESSION['user_mgcompany']) 
 				{
 					$emelement_id = $eid;
@@ -356,7 +378,7 @@ class Model_building_passport extends Model
 			{
 				//Запрос от члена ТСЖ. Проверим, относится ли запрошенный счётчик к его дому
 				$query = 'SELECT emelement.building_id FROM emelement WHERE emelement.id='.$eid;
-				$emelement_building_id = mysql_result($this->evaluate_Query($query), 0, 0);
+				$emelement_building_id = mysql_result(evaluate_Query($query), 0, 0);
 				if ($_SESSION['user_building_id'] == $emelement_building_id) 
 				{
 					$emelement_id = $eid;
@@ -372,7 +394,7 @@ class Model_building_passport extends Model
 			{
 				//Обычный жилец, просто возвращаем id его личного счётчика
 				$query = 'SELECT emelement.id FROM emelement WHERE emelement.stop_date IS NULL AND emelement.flat_id='.$user_flat_id;
-				$emelement_id = mysql_result($this->evaluate_Query($query), 0, 0);
+				$emelement_id = mysql_result(evaluate_Query($query), 0, 0);
 			}			
 		}
 		return $emelement_id;
@@ -381,8 +403,8 @@ class Model_building_passport extends Model
 	
 	private	function GetEmelementData($eid)
 	{
-		$result['eChars'] = $this->evaluate_Query('SELECT * FROM emelement WHERE emelement.id='.$eid);
-		$result['eTypesList'] = $this->evaluate_Query('SELECT * FROM c_emelementtype');	
+		$result['eChars'] = evaluate_Query('SELECT * FROM emelement WHERE emelement.id='.$eid);
+		$result['eTypesList'] = evaluate_Query('SELECT * FROM c_emelementtype');	
 		return $result;				
 	}
 	

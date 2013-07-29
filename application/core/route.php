@@ -12,7 +12,6 @@ class Route
 		// контроллер и действие по умолчанию
 		$controller_name = 'Main';
 		$action_name = 'index';
-
 		//Отсекаем часть с GET запросом
 		$request = explode('?', $_SERVER['REQUEST_URI']);		
 		$routes = explode('/', $request[0]);
