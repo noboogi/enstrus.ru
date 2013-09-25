@@ -2,21 +2,14 @@
 
 class Controller_building_menu extends Controller
 {
-
-	function __construct()
-	{
+	function __construct() {
+		parent::__construct();
 		$this->model = new Model_building_menu();
-		$this->view = new View();
 	}
 
-
-	
-	function action_index()
-	{
-		$data = $this->model->get_data();		
-		$this->view->generateBlock('building_menu', $data);
+	function action_index() {
+		$bid = isset($_GET['bid']) ? '?bid='.$_GET['bid'] : '';	
+		$data = $this->model->get_data($bid);		
+		return $this->view->GenerateBlock('building_menu', $data);
 	}
-	
-
-
 }

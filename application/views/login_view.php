@@ -6,11 +6,10 @@
         <div class="content" align="center">
 		
 		<?php
-			if (isset($data)) 
+			if (isset($data['error'])) 
 			{
-				extract($data);
-				echo "<div class=\"message $error\">"; 
-				echo $message;
+				echo "<div class=\"message error\">"; 
+				echo $data['error'];
 				echo '</div>';
 			}
 		?>			

@@ -1,6 +1,3 @@
-#не нужно трогать эти файлы
-application/dbconfig.php
 .htaccess
 Thumbs.db
 *.log
-index.php

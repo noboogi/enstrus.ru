@@ -1,63 +1,24 @@
 <?php
+class Controller_office extends Controller {
 
-
-class Controller_office extends Controller
-{
-
-	function __construct()
-	{
+	function __construct() {
+		parent::__construct();	
 		$this->model = new Model_office();
-		$this->view = new View();
 	}
 	
-	//Если запрошена главная страница личного кабинета
-	function action_index()
-	{
-		$data = $this->model->get_data();
-		if ($data['status'] > 5) 
-		{	
-			//Офис для администрации портала	
-			$this->view->generate('administration_office_view.php', 'template_view.php', $data);
+	function action_index() {
+		$userStatus = $this->user->GetStatus();
+		if ($userStatus >= MODERATOR) {
+			$data = $this->model->GetAdministrationOfficeData();
+			$this->ShowView('template_view.php', 'administration_office_view.php', $data, array('main_menu'));		
 		}
-		elseif ($data['status'] > 4)
-		{
-			//Офис управляющей компании			
-			$this->view->generate('mgcompany_office_view.php', 'template_view.php', $data);				
+		elseif ($userStatus == MGCOMPANY) {
+			$data = $this->model->GetMgCompanyOfficeData();
+			$this->ShowView('template_view.php', 'mgcompany_office_view.php', $data, array('main_menu'));		
 		}
-		else
-		{
-			//Офис потребителя-клиента			
-			$this->view->generate('building_passport_news_view.php', 'template_view.php', $data);	
+		else {
+			//РћС„РёСЃ РїРѕС‚СЂРµР±РёС‚РµР»СЏ-РєР»РёРµРЅС‚Р° РёР»Рё РўРЎР– - РїРµСЂРµРЅР°РїСЂР°РІР»СЏРµРј СЃСЂР°Р·Сѓ РЅР° СЃС‚СЂР°РЅРёС†Сѓ РґРѕРјР°
+			header('Location:/building/news');							
 		}
 	}
-	
-	//Офис: Технический паспорт
-	function action_passport()
-	{
-		$data = $this->model->get_data("passport");			
-		$this->view->generate('customer_office_passport_view.php', 'template_view.php', $data);	
-	}
-	//Офис: Жалобы-заявки пользователя
-	function action_laments()
-	{
-		$data = $this->model->get_data("laments");			
-		$this->view->generate('customer_office_laments_view.php', 'template_view.php', $data);	
-	}
-	
-	//Платные услуги
-	function action_services()
-	{
-		$data = $this->model->get_data("services");			
-		$this->view->generate('customer_office_services_view.php', 'template_view.php', $data);	
-	}
-	
-	//Измерения потребления энергии, счётчики (электричество, вода, прочее)
-	function action_measurements()
-	{
-		$data = $this->model->get_data("measurements");			
-		$this->view->generate('customer_office_measurements_view.php', 'template_view.php', $data);	
-	}
-
-
-
 }

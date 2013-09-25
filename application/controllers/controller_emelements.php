@@ -1,28 +1,20 @@
 <?php
+class Controller_Emelements extends Controller {
 
-
-class Controller_Emelements extends Controller
-{
-
-	function __construct()
-	{
-		$this->model = new Model_Emelements();
-		$this->view = new View();	
+	function __construct() {
+		parent::__construct();
+		if (!($this->CheckSession(MODERATOR))) {header('Location:/login');}
+		$this->model = new Model_Emelements();	
 	}
 	
-	function action_index()
-	{	
-		$data['data'] = $this->model->get_data();
-		$this->view->generate('emelements_view.php', 'template_view.php', $data);
+	function action_index() {	
+		$data = $this->model->get_data();
+		$this->ShowView('template_view.php', 'emelements_view.php', $data, array('main_menu'));
 	}
 	
-	function action_upload()
-	{	
-		$data['uploadStatus'] = $this->model->upload();
+	function action_UploadMeasurement() {	
+		$data['uploadStatus'] = $this->model->UploadMeasurement();
 		$data['data'] = $this->model->get_data();
-		$this->view->generate('emelements_view.php', 'template_view.php', $data);
+		$this->ShowView('template_view.php', 'emelements_view.php', $data, array('main_menu'));
 	}
-
-
-
 }

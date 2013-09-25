@@ -4,15 +4,12 @@
 	</div>
 
 	<div class="content">
-		<!--Древовидное меню-->
-		<!--Надеюсь, вам не придёт в голову разбираться в этом коде-->
 		<ol class="tree">
 		<?php
 			$disclosed = $data['disclosed'];
-			$tree = $data['street_tree'];
 			$prev_area='';
 			
-			while($row = mysql_fetch_array($tree))
+			foreach ($data['streetTreeMenu'] as $row)
 			{
 				if ($prev_area!=$row['areaName']) 
 				{
@@ -21,7 +18,7 @@
 							<label for="'.$row['areaName'].'">
 							<a href="/buildings?areaId='.$row['areaId'].'">'.$row['areaName'].'</a></label> 
 							<input type="checkbox"';
-							if ($disclosed==$row['areaId']) {echo "checked ";};
+							if ($data['disclosed'] == $row['areaId']) {echo "checked ";};
 					echo '	/>';
 					echo '		<ol>'; //Открываем подпункт
 					echo '			<li class="sub"><a href="/buildings?areaId='.$row['areaId'].'&streetId='.$row['streetId'].'">'.$row['streetName'].'</a></li>';
@@ -34,20 +31,17 @@
 			}; 
 		?>
 		</ol>            
-        <!------------------>	
 	</div>
 </div>
 
 <div class="box right wide">
 	<div class="title">
 		Список
-		<div class="icon_button bordered"><img src="images/icons/24/add.png" width="20" height="20" /></div>	
+		<div class="icon_button bordered"><img src="images/icons/24/add.png" width="20" height="20" /></div>
 	</div>
 
 	<div class="content">
-	<!--Сортируемая таблица-->
     <table class="information sortable">
-		<!--Шапка таблицы-->
 		<thead>
 			<tr>
 				<th>
@@ -67,11 +61,9 @@
 				</th>				
 			</tr>
 		</thead>
-		<!--Тело таблицы-->
 		<tbody>		
 		<?php						
-			$buildings = $data['buildings'];
-			while($row = mysql_fetch_array($buildings))
+			foreach ($data['buildingsList'] as $row)
 			{
 				echo '<tr>';
 					echo '<td>'.$row['streetName'].'</td>';
@@ -83,7 +75,7 @@
 								<div class="icon_button"><img src="images/icons/edit16.png"  border=0 /></div>
 								<div class="icon_button"><img src="images/icons/map16.png"  border=0 /></div>
 								<div class="icon_button"><img src="images/icons/users16.png"  border=0 /></div>
-								<div class="icon_button"><a href="/building_passport?bid='.$row['buildingId'].'"><img src="images/icons/home16.png"
+								<div class="icon_button"><a href="/building?bid='.$row['buildingId'].'"><img src="images/icons/home16.png"
 								 border=0/></a></div>								
 							</td>';
 				echo '</tr>';
@@ -91,12 +83,5 @@
 		?>
         </tbody>                
 	</table>
-    <!----------------------->		
-
 	</div>
 </div>
-
-
-
-
-

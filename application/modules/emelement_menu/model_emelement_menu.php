@@ -16,9 +16,7 @@ class Model_emelement_menu extends Model
 				array ('Name' => 'Характеристики', 'Url' => '/building_passport/echars'.$eid.$bid),		
 				array ('Name' => 'История', 'Url' => '/building_passport/ehistory'.$eid.$bid)
 			);
-			if ($this->emelementType($_GET['eid']) == 1) {
-				$data[] = array('Name' => 'Отправка отчёта', 'Url' => '/building_passport/ereportmail'.$eid.$bid);
-			}
+
 			return $data;		
 		}		
 		/*Пользователь не авторизован*/

@@ -1,6 +1,6 @@
 <?php
-	function evaluate_Query($q)
-	{
+function evaluate_Query($q)
+{
 		global $db_loc,$db_name,$db_user_adm,$db_pass_adm;
 		$link = mysql_connect($db_loc,$db_user_adm,$db_pass_adm);
 		mysql_query('SET NAMES utf8');
@@ -15,10 +15,10 @@
 					mysql_close($link);	
 					return $res;
 			}
-	}
+}
 	
-	function getDBLink()
-	{
+function getDBLink()
+{
 		global $db_loc,$db_name,$db_user_adm,$db_pass_adm;
 		$link = mysql_connect($db_loc,$db_user_adm,$db_pass_adm);
 		mysql_query('SET NAMES utf8');
@@ -31,45 +31,45 @@
 			{
 				return $link;
 			}	
-	}
+}
 	
-	//Дополнительная проверка на SQL-инъекцию
-	function CheckKeyWords($q) 
-	{
-	  $q = strtolower($q); // Приравниваем текст параметра к нижнему регистру
+	//Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅР°СЏ РїСЂРѕРІРµСЂРєР° РЅР° SQL-РёРЅСЉРµРєС†РёСЋ
+function CheckKeyWords($q) 
+{
+	  $q = strtolower($q); // РџСЂРёСЂР°РІРЅРёРІР°РµРј С‚РµРєСЃС‚ РїР°СЂР°РјРµС‚СЂР° Рє РЅРёР¶РЅРµРјСѓ СЂРµРіРёСЃС‚СЂСѓ
 	  if (
 		!strpos($q, "select") && //
 		!strpos($q, "union") && //
 		!strpos($q, " or ") && //
 		!strpos($q, "create") && //
-		!strpos($q, "order") && // Ищем вхождение слов в параметре
+		!strpos($q, "order") && // РС‰РµРј РІС…РѕР¶РґРµРЅРёРµ СЃР»РѕРІ РІ РїР°СЂР°РјРµС‚СЂРµ
 		!strpos($q, "where") && //
 		!strpos($q, "char") && 	//
 		!strpos($q, "from") 	//
 	  ) {
-		return true; // Вхождений нету - возвращаем true
+		return true; // Р’С…РѕР¶РґРµРЅРёР№ РЅРµС‚Сѓ - РІРѕР·РІСЂР°С‰Р°РµРј true
 	  } else {
-		return false; // Вхождения есть - возвращаем false
+		return false; // Р’С…РѕР¶РґРµРЅРёСЏ РµСЃС‚СЊ - РІРѕР·РІСЂР°С‰Р°РµРј false
 	  }
-	}
+}
 
-	//Валидация данных
+	//Р’Р°Р»РёРґР°С†РёСЏ РґР°РЅРЅС‹С…
 	function SafeSQL($data, $length=NULL)
 	{
-		//Обрезаем строку, если требуется
+		//РћР±СЂРµР·Р°РµРј СЃС‚СЂРѕРєСѓ, РµСЃР»Рё С‚СЂРµР±СѓРµС‚СЃСЏ
 		if ($length != NULL)
 		{
 			$data = substr($data,0,$length);
 		}
-		//Удаляем спецсимволы и возвращаем
+		//РЈРґР°Р»СЏРµРј СЃРїРµС†СЃРёРјРІРѕР»С‹ Рё РІРѕР·РІСЂР°С‰Р°РµРј
 		$data = strip_tags(mysql_escape_string($data));
-		If ($this->CheckKeyWords($data))
+		If (CheckKeyWords($data))
 		{
 			return $data;	
 		}		
 		else
 		{
-			//Подозрение на SQL-инъекцию, можно записать в журнал...
+			//РџРѕРґРѕР·СЂРµРЅРёРµ РЅР° SQL-РёРЅСЉРµРєС†РёСЋ, РјРѕР¶РЅРѕ Р·Р°РїРёСЃР°С‚СЊ РІ Р¶СѓСЂРЅР°Р»...
 			return NULL;
 		}
 	}

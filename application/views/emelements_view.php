@@ -1,40 +1,44 @@
+<script type="text/javascript" language="JavaScript">
+function OpenUploadWindow(eid,sn) {
+	var windowProperty='width=350, height=350, toolbar=0, fullscreen=0, location=0, directories=0, status=0, menubar=0, scrollbars=0, resizable=0';
+    var windowName='Зарузка файлов с измерениями';
+	var windowPath='/upload_measurements_file?eid='+eid+'&sn='+sn;
+    window.open(windowPath, windowName, windowProperty);
+};
+</script>
+
 <div class="center">
-				<?php 
+<?php 
 				/*Сообщим об успехе операции загрузкии файла*/
-				if ($data['uploadStatus']['label'] != "")
-				{
-					if ($data['uploadStatus']['code'] == 0) 
-					{
-						echo '<div id="message" class="message error">';	
-					}
-					else
-					{
-						echo '<div id="message" class="message success">';
-					} 
-					echo $data['uploadStatus']['label']."<br> Всего записей загружено ".$data['uploadStatus']['parsingResult']['count'];
-					echo " за период: c ".$data['uploadStatus']['parsingResult']['startDate']." по ".$data['uploadStatus']['parsingResult']['endDate'];
-					if ($data['uploadStatus']['parsingResult']['ignoredCount']>0) 
-					{
-						echo "<br> Из них ".$data['uploadStatus']['parsingResult']['ignoredCount']." не записано, так как измерения на эту дату уже содержатся в БД";
-					}
-					echo '</div>';
-				}
-			?>
+//				if ($data['uploadStatus']['label'] != "")
+//				{
+//					if ($data['uploadStatus']['code'] == 0) 
+//					{
+//						echo '<div id="message" class="message error">';	
+//					}
+//					else
+//					{
+//						echo '<div id="message" class="message success">';
+//					} 
+//					echo $data['uploadStatus']['label']."<br> Всего записей загружено ".$data['uploadStatus']['parsingResult']['count'];
+//					echo " за период: c ".$data['uploadStatus']['parsingResult']['startDate']." по ".$data['uploadStatus']['parsingResult']['endDate'];
+//					if ($data['uploadStatus']['parsingResult']['ignoredCount']>0) 
+//					{
+//						echo "<br> Из них ".$data['uploadStatus']['parsingResult']['ignoredCount']." не записано, так как измерения на эту дату уже содержатся в БД";
+//					}
+//					echo '</div>';
+//				}
+?>
 </div>
-
-
 
 <div class="box left narrow">
 	<div class="title">
 		Отбор
 	</div>
-
 	<div class="content">
 		Форма фильтра будет позже
 	</div>
 </div>
-
-
 
 <div class="box right wide">
 	<div class="title">
@@ -50,91 +54,53 @@
 		<div class="icon_button bordered"><img src="../images/icons/24/add.png" title="Создать новый" width="20" height="20" /></div>	
 	</div>
 	
-
   	<div class="content">				
-		<!--Сортируемая таблица-->
 		<table class="information sortable">
-			<!--Шапка таблицы-->
 			<thead>
 				<tr>
-					<th>
-						<!--Для чекбоксов-->
-					</th>
-					<th>
-						Серийный номер
-					</th>
-					<th>
-						Тип
-					</th>
-					<th>
-						Комментарий
-					</th>
-					<th>
-						КТТ
-					</th>
-					<th>
-						КТН
-					</th>
-					<th>
-						Улица
-					</th>	
-					<th>
-						Подъезд
-					</th>		
-					<th>
-						Квартира
-					</th>
-					<th>
-						<!--Колонка с иконками-->
-					</th>													
+					<th><!--checkboxes--></th>
+					<th>Серийный номер</th>
+					<th>Тип</th>
+					<th>Комментарий</th>
+					<th>КТТ</th>
+					<th>КТН</th>
+					<th>Улица</th>	
+					<th>Подъезд</th>		
+					<th>Квартира</th>
+					<th><!--icons--></th>													
 				</tr>
 			</thead>
-			<!--Тело таблицы-->
 			<tbody>	
-			<form id="emeasurementsElements" name="emeasurementsElements" method="post" action="/emeasurements">	
-			<?php	
-				$i = 0; //Счетчик чекбоксов					
-				$emelements = $data['data'];
-			
-				while($row = mysql_fetch_array($emelements))
-				{
-					$i++;
-					echo '<tr>';
-						echo '<td><input type="checkbox" name="emelement'.$i.'" value="'.$row['sn'].'" /></td>';
-						echo '<td><a href="/emeasurements?sn='.$row['sn'].'">'.$row['sn'].'</a></td>';
-						echo '<td>'.$row['label'].'</td>';
-						echo '<td>'.$row['descr'].'</td>';
-						echo '<td>'.$row['cRatio'].'</td>';
-						echo '<td>'.$row['vRatio'].'</td>';
-						echo '<td>'.$row['streetName'].'</td>';
-						echo '<td>'.$row['porchNo'].'</td>';
-						echo '<td>'.$row['flatNo'].'</td>';					
-						echo '	<td>
-									<div class="icon_button"><img title="Удалить" src="../images/icons/delete16.png"  border=0 id="'.$row['id'].'"/></div>
-									<div class="icon_button">
-										<a href="#openModal" title="Загрузка файлов с измерениями" 
-										onClick="document.getElementById(\'emelementId\').value = '.$row['id'].';
-										document.getElementById(\'snLabel\').innerHTML = '.$row['sn'].'">
-											<img  border=0 style="border: 0" src="../images/icons/upload16.png"/>
-										</a>
-									</div>	
-									<div class="icon_button">
-										<a href="/emeasurements/graph?sn='.$row['sn'].'">
-										<img  border=0 title="Вывести график" src="../images/icons/graph16.png" />
-										</a>
-									</div>							
-								</td>';
-					echo '</tr>';
-				}
-			?>
+			<form id="emeasurementsElements" name="emeasurementsElements" method="post" action="/emeasurements">
+			<?php foreach ($data['emelementsList'] as $row):?>
+				<tr>
+				<td><input type="checkbox" name="emelement<?php echo $i?>" value="<?php echo $row['sn']?>" /></td>
+				<td><a href="/emeasurements?sn=<?php echo $row['sn']?>"><?php echo $row['sn']?></a></td>
+				<td><?php echo $row['label']?></td>
+				<td><?php echo $row['descr']?></td>
+				<td><?php echo $row['cRatio']?></td>
+				<td><?php echo $row['vRatio']?></td>
+				<td><?php echo $row['streetName']?></td>
+				<td><?php echo $row['porchNo']?></td>
+				<td><?php echo $row['flatNo']?></td>				
+				<td>
+				<div class="icon_button"><img title="Удалить" src="../images/icons/delete16.png"  border=0 id="<?php echo $row['id']?>"/></div>
+				<div class="icon_button">
+					<img  border=0 style="border: 0" src="../images/icons/upload16.png" onClick="OpenUploadWindow(<?php echo $row['id'].",".$row['sn']?>);">
+				</div>	
+				<div class="icon_button">
+					<a href="/emeasurements/graph?sn=<?php echo $row['sn']?>">
+					<img  border=0 title="Вывести график" src="../images/icons/graph16.png" />
+					</a>
+				</div>							
+				</td>
+				</tr>		
+			<?php endforeach;?>			
 			</form>
 			</tbody>              
 		</table>
-		<!----------------------->		
-
-
-	
-		<!--Модальное окно-->
+			
+	<!--Модальное окно-->
 	<div id="openModal" class="modalDialog">
 	    <div>
 	        <a href="#close" title="Закрыть" class="close">X</a>

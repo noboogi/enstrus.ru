@@ -4,12 +4,11 @@
 	</div>
 
 	<div class="content">
-		<?php 
-			while($row = mysql_fetch_array($data['news']))
-			{
-				echo '<div class="news_header">'.$row['header'].'<div class="meta">'.$row['date'].' добавил: '.$row['fullName'].'</div></div>';
-				echo '<div class="news_body">'.$row['content'].'</div>';
-			} 
+		<?php
+			foreach ($data['news'] as $n) {
+				echo '<div class="news_header">'.$n['header'].'<div class="meta">'.$n['date'].' добавил: '.$n['fullName'].'</div></div>';
+				echo '<div class="news_body">'.$n['content'].'</div>';	
+			}
 		?>		
 	</div>
 </div>
@@ -21,16 +20,13 @@
 
 	<div class="content height600">
 		<?php 
-			
-			while($row = mysql_fetch_array($data['contacts']))
-			{
-				echo '<div class="name">'.$row['fullName'].'</div>';
-				echo '<div class="contact phone">'.$row['mobilePhone'].'</div>';
-				echo '<div class="contact email">'.$row['email'].'</div>';
-				echo '<div class="contact icq">'.$row['icq'].'</div>';
-				echo '<div class="contact skype">'.$row['skype'].'</div>';
-			} 
-
+			foreach ($data['contacts'] as $c) {
+				echo '<div class="name">'.$c['fullName'].'</div>';
+				echo '<div class="contact phone">'.$c['mobilePhone'].'</div>';
+				echo '<div class="contact email">'.$c['email'].'</div>';
+				echo '<div class="contact icq">'.$c['icq'].'</div>';
+				echo '<div class="contact skype">'.$c['skype'].'</div>';			
+			}
 		?>
 	</div>
 </div>

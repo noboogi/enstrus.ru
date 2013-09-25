@@ -4,23 +4,29 @@
 		Личный кабинет
 	</div>
 	<div class="content">
-		<!--Меню офиса-->
 		<?php GetAsBlock("building_menu"); ?>
 	</div>
 </div>
 
 <div class="box right wide">
 	<div class="title">
-		<div style="float: left">Приборы учёта</div>
-		<div class="icon_button bordered" 
-			onclick="document.emeasurementsElements.action='/emeasurements/graph'; document.emeasurementsElements.submit()" style="cursor:pointer;">
-			<img src="../images/icons/24/bar_chart.png" width="20" height="20" title="Статистика по выбраным: график" />		
-		</div>
-		<div class="icon_button bordered" 
-			onclick="document.emeasurementsElements.action='/emeasurements/table'; document.emeasurementsElements.submit()" style="cursor:pointer; margin-left: 15px;">
-			<img src="../images/icons/24/sum.png" width="20" height="20" title="Статистика по выбраным: таблица" />		
-		</div>			
-		<div style="float: right"><?php echo $data['address']; ?>
+		<div style="float: left">Приборы учёта: счётчики электрические</div>
+			<div class="icon_button bordered" 
+				onclick="document.emeasurementsElements.action='/mail_report?bid=<?php echo $data['bid']?>'; 
+				document.emeasurementsElements.submit()" style="cursor:pointer;">
+				<img src="../images/icons/24/mail.png" width="20" height="20" title="Отправка отчёта в «Энергокомфорт»" />		
+			</div>		
+			<div class="icon_button bordered" 
+				onclick="document.emeasurementsElements.action='/emeasurements/graph'; 
+				document.emeasurementsElements.submit()" style="cursor:pointer;">
+				<img src="../images/icons/24/bar_chart.png" width="20" height="20" title="Статистика по выбраным: график" />		
+			</div>
+			<div class="icon_button bordered" 
+				onclick="document.emeasurementsElements.action='/emeasurements/table'; 
+				document.emeasurementsElements.submit()" style="cursor:pointer; margin-left: 15px;">
+				<img src="../images/icons/24/sum.png" width="20" height="20" title="Статистика по выбраным: таблица" />		
+			</div>			
+			<div style="float: right"><?php echo $data['address']; ?>
 		</div>	
 	</div>
 

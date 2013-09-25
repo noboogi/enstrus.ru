@@ -1,10 +1,12 @@
 <?php
+class Controller_Main extends Controller {
+	
+	function __construct() {
+		parent::__construct();
+	}
 
-class Controller_Main extends Controller
-{
-
-	function action_index()
-	{	
-		$this->view->generate('main_view.php', 'template_view.php');
+	function action_index() {	
+		$this->ShowView('template_view.php', 'main_view.php', NULL, array('main_menu'));
 	}
 }
+?>

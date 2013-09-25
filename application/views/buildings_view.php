@@ -4,15 +4,12 @@
 	</div>
 
 	<div class="content">
-		<!--Древовидное меню-->
-		<!--Надеюсь, вам не придёт в голову разбираться в этом коде-->
 		<ol class="tree">
 		<?php
 			$disclosed = $data['disclosed'];
-			$tree = $data['street_tree'];
 			$prev_area='';
 			
-			while($row = mysql_fetch_array($tree))
+			foreach ($data['streetTreeMenu'] as $row)
 			{
 				if ($prev_area!=$row['areaName']) 
 				{
@@ -21,7 +18,7 @@
 							<label for="'.$row['areaName'].'">
 							<a href="/buildings?areaId='.$row['areaId'].'">'.$row['areaName'].'</a></label> 
 							<input type="checkbox"';
-							if ($disclosed==$row['areaId']) {echo "checked ";};
+							if ($data['disclosed'] == $row['areaId']) {echo "checked ";};
 					echo '	/>';
 					echo '		<ol>'; //Открываем подпункт
 					echo '			<li class="sub"><a href="/buildings?areaId='.$row['areaId'].'&streetId='.$row['streetId'].'">'.$row['streetName'].'</a></li>';
@@ -34,7 +31,6 @@
 			}; 
 		?>
 		</ol>            
-        <!------------------>	
 	</div>
 </div>
 
@@ -44,9 +40,7 @@
 	</div>
 
 	<div class="content">
-	<!--Сортируемая таблица-->
     <table class="information sortable">
-		<!--Шапка таблицы-->
 		<thead>
 			<tr>
 				<th>
@@ -66,11 +60,9 @@
 				</th>				
 			</tr>
 		</thead>
-		<!--Тело таблицы-->
 		<tbody>		
 		<?php						
-			$buildings = $data['buildings'];
-			while($row = mysql_fetch_array($buildings))
+			foreach ($data['buildingsList'] as $row)
 			{
 				echo '<tr>';
 					echo '<td>'.$row['streetName'].'</td>';
@@ -86,8 +78,6 @@
 		?>
         </tbody>                
 	</table>
-    <!----------------------->		
-
 	</div>
 </div>
 

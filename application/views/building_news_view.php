@@ -1,12 +1,10 @@
 
 <div class="box left narrow">
 	<div class="title">
-		Навигация
+		Личный кабинет
 	</div>
-
 	<div class="content">
-		<!--Меню офиса-->
-		<?php GetAsBlock("building_menu"); ?>
+		{BUILDING_MENU}
 	</div>
 </div>
 

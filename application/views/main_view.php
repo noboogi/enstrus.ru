@@ -9,16 +9,7 @@
 	ООО «Энерго-строй» оказывает следующие услуги:
 		</div>
 		</div>
-	
-<!--		<div style="width:50%; float:left;">
-		<div class="newsTitle">Контакты</div>
-		<div class="newsContent">
-			<ul>
-				<li></li>
-				
-			</ul>
-		</div>
-		</div>-->
+
 		
 		<div class="newsTitle">Услуги</div>
 		<div class="newsContent">

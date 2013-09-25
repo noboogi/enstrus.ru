@@ -1,30 +1,20 @@
 <?php
+class Controller_buildings extends Controller {
 
-
-class Controller_buildings extends Controller
-{
-
-	function __construct()
-	{
+	function __construct() {
+		parent::__construct();
+		if (!($this->CheckSession(MGCOMPANY))) {header('Location:/login');}
 		$this->model = new Model_Buildings();
-		$this->view = new View();	
 	}
 	
-	function action_index()
-	{	
-		$data = $this->model->get_data();
-		if ($data['access'] == 7)
-		{
-			//Если админ - используем view с дополнительными элментами управления
-			$this->view->generate('a_buildings_view.php', 'template_view.php', $data);
-		}
-		else
-		{
-			//Стандартная view
-			$this->view->generate('buildings_view.php', 'template_view.php', $data);
-		}
+	function action_index() {	
+		$template = 'a_buildings_view.php'; 
+		$filter = array();
+		if (isset($_GET['streetId'])) {$filter['streetId'] = $_GET['streetId'];}
+		if (isset($_GET['areaId'])) {$filter['areaId'] = $_GET['areaId'];}
+		if ($this->user->GetStatus() == MGCOMPANY) {$template = 'buildings_view.php'; $filter['mgcompanyId'] = $this->user->GetMgcompanyId();}
+		
+		$data = $this->model->get_data($filter);
+		$this->ShowView('template_view.php', $template, $data, array('main_menu'));		
 	}
-
-
-
 }

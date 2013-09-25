@@ -1,11 +1,6 @@
 <?php
-
-class Controller_404 extends Controller
-{
-	
-	function action_index()
-	{
-		$this->view->generate('404_view.php', 'empty_template_view.php');
+class Controller_404 extends Controller {	
+	function action_index() {
+		$this->ShowView('empty_template_view.php', '404_view.php', NULL);
 	}
-
 }
